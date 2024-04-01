@@ -3,7 +3,7 @@ Posit Academy: Introduction to Data Science with R
 
 ### posit::conf(2024)
 
-by INSTRUCTOR_NAME
+by Brendan Cullen
 
 -----
 
