@@ -40,3 +40,20 @@ You will join your fellow learners at posit::conf(2024) to practice, apply and e
 | 13:30 - 15:00 | Session 3 - Explore new data             |
 | 15:00 - 15:30 | *Coffee break*                           |
 | 15:30 - 17:00 | Session 4 - Share and Wrap-up            |
+
+## Logistics
+
+
+WiFi: Posit Conf 2024 Password: conf2024
+
+There are gender-neutral bathrooms located on levels 3, 4, 5, 6 & 7
+
+There is a meditation/prayer room is located in 503. Available Mon & Tues 7am - 7pm, and Wed 7am - 5pm.
+
+The lactation room is located in 509, same timings as above.
+
+Participants who do not wish to be photographed have red lanyards; please note everyone’s lanyard colors before taking a photo and respect their choices.
+
+## Code of Conduct
+
+The Code of Conduct can be found at https://posit.co/code-of-conduct. Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information.
