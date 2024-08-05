@@ -32,7 +32,10 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
       
       - name: Install Quarto
-        uses: quarto-dev/quarto-actions/install-quarto@v2
+        uses: quarto-dev/quarto-actions/install-quarto@v1
+        with:
+          # Pin the quarto version
+          version: 1.4.0
           
       - name: Render slides and quarto website
         run: Rscript ./.build-site.R
