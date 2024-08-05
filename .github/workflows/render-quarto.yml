@@ -18,7 +18,9 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -30,7 +32,7 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
       
       - name: Install Quarto
-        uses: quarto-dev/quarto-actions/install-quarto@v2
+        uses: quarto-dev/quarto-actions/setup@v2
           
       - name: Render slides and quarto website
         run: Rscript ./.build-site.R
