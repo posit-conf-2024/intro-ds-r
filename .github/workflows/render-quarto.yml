@@ -35,7 +35,7 @@ jobs:
         uses: quarto-dev/quarto-actions/install-quarto@v1
         with:
           # Pin the quarto version
-          version: 1.4.0
+          version: 1.4.545
           
       - name: Render slides and quarto website
         run: Rscript ./.build-site.R
