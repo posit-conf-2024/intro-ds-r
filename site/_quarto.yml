@@ -21,6 +21,9 @@ format:
     theme: 
       - cosmo
       - styles.scss
+    link-external-newwindow: true
+    link-external-icon: true
+    
 
 editor: visual
 
