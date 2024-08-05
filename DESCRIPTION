@@ -1,0 +1,37 @@
+Package: intro.to.tidyverse
+Title: Dependencies for the Website for "Intro to the Tidyverse"
+Version: 0.0.1
+Authors@R: c(
+    person("Brendan", "Cullen", , "brendan.cullen@rstudio.com", role = "aut"),
+    person("Kristin", "Bott", , "kristin.bott@rstudio.com", role = "aut"),
+  )
+Description: Dependencies for the "Intro to the Data Science with R" workshop at
+    posit::conf(2024).
+License: MIT + file LICENSE
+Depends:
+    tidyverse
+Imports: 
+    flair (>= 0.0.2),
+    janitor,
+    knitr,
+    rmarkdown,
+    babynames
+Suggests:
+    emo (>= 0.0.0.9000),
+    countdown (>= 0.3.5),
+    fontawesome,
+    here,
+    quarto,
+    usethis,
+    xaringan,
+    xaringanExtra,
+    reactable (>= 0.3.0),
+    ymlthis
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Remotes:  
+    hadley/emo,
+    r-for-educators/flair,
+    glin/reactable
+

@@ -1,0 +1,26 @@
+project:
+  type: website
+  execute-dir: file
+  output-dir: _site
+  resources:
+    - "_slides/"
+
+website:
+  title: "Introduction to Data Science with R"
+  favicon: "images/favicon.png"
+  repo-url: https://github.com/posit-conf-2023/r-intro
+  repo-actions: [source, issue]
+  page-navigation: true
+  
+  navbar:
+    logo: "images/posit-logo-fullcolor-TM.png"
+    background: light
+    
+format:
+  html:
+    theme: 
+      - cosmo
+      - styles.scss
+
+editor: visual
+
