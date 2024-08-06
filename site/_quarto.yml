@@ -8,7 +8,7 @@ project:
 website:
   title: "Introduction to Data Science with R"
   favicon: "images/favicon.png"
-  repo-url: https://github.com/posit-conf-2023/r-intro
+  repo-url: https://github.com/posit-conf-2024/intro-ds-r
   repo-actions: [source, issue]
   page-navigation: true
   
