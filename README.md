@@ -23,7 +23,7 @@ here.
 
 :spiral_calendar: August 12, 2024  
 :alarm_clock:     09:00 - 17:00  
-:hotel:           502 (Cowlitz) 
+:hotel:           502 (Cowlitz)  
 :writing_hand:    [intro-tidyverse-2024.netlify.app](http://https://intro-tidyverse-2024.netlify.app)
 
 -----
