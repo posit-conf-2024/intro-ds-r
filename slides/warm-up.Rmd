@@ -106,14 +106,22 @@ knitr::include_graphics("images/welcome/campsite_warmup.png")
 
 ## `r emo::ji("rocket")` Warm-up
 
-
-```{r label, echo = FALSE, out.width="60%"}
+.pull-left[
+```{r label, echo = FALSE}
 knitr::include_graphics("images/welcome/your-turn-example.png")
 ```
 
-* __Working together__ with your neighbors is encouraged.
+]
+
+.pull-right[
+
+* __Work together__ with your neighbors
+
+* There are often several different ways of getting to the right answer.
 
 * After 1-2 minutes, we'll go over the answer together. And then move on to the next question. 
+
+]
 
 ---
 class: inverse, center, middle
@@ -160,7 +168,9 @@ class: your-turn
 
 # Your Turn 1
 
-Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?
+**Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?**
+
+`r emo::ji("bulb")` Hint: What function from dplyr gives you a quick glimpse of your data?
 
 ```{r read-in-outbreaks, include = FALSE}
 seattle_pets <- readr::read_csv("data/warm-up/seattle_pets.csv")
@@ -192,7 +202,10 @@ class: your-turn
 
 # Your Turn 2
 
-How many different species are represented in `seattle_pets`? How many pets of each species are there?
+**How many different species are represented in `seattle_pets`? How many pets of each species are there?**
+
+
+`r emo::ji("bulb")` Hint: What function from dplyr lets you count the unique values of one or more variables?
 
 ---
 
@@ -200,7 +213,8 @@ How many different species are represented in `seattle_pets`? How many pets of e
 
 .pull-left[
 ```{r eval = FALSE}
-seattle_pets |> count(species, sort = TRUE)
+seattle_pets |> 
+  count(species, sort = TRUE)
 ```
 
 or...
@@ -224,65 +238,41 @@ class: your-turn
 
 # Your Turn 3
 
-What is the most popular pet name in this data set? *Hint* Look up the help documentation for `slice_max()` from dplyr.
+**What is the most popular pet name in this data set?**
+
+`r emo::ji("bulb")` Hint: Look up the help documentation for `slice_max()` from dplyr.
 
 ---
 
 # Solution 3
 
+.pull-left[
+
 ```{r eval = FALSE}
 seattle_pets |> 
   count(animal_name) |> 
-  slice_max(n) |> 
+  slice_max(order_by = n) |> 
   pull(animal_name)
-```
-
-
-```{r echo = FALSE, message = FALSE}
-seattle_pets |> 
-  count(animal_name) |> 
-  slice_max(n) |> 
-  pull(animal_name)
-```
-
----
-class: your-turn
-
-# Your Turn 4
-
-How many different primary dog breeds are there? 
-
----
-
-# Solution 4
-
-.pull-left[
-
-```{r eval=FALSE}
-seattle_pets |> 
-  filter(species == "Dog") |> 
-  distinct(primary_breed) |> 
-  nrow()
 ```
 
 or...
 
-```{r eval = FALSE}
-seattle_pets |>
-  filter(species == "Dog") |> 
-  pull(primary_breed) |> 
-  n_distinct()
+```{r eval=FALSE}
+seattle_pets |> 
+  count(animal_name) |> 
+  filter(n == max(n)) |> 
+  pull(animal_name)
 ```
 
 ]
 
 .pull-right[
 
-```{r echo=FALSE}
-seattle_pets |>
-  filter(species == "Dog") |> 
-  pull(primary_breed) |> 
-  n_distinct()
+```{r echo = FALSE, message = FALSE}
+seattle_pets |> 
+  count(animal_name) |> 
+  slice_max(order_by = n) |> 
+  pull(animal_name)
 ```
 
 ]
@@ -290,44 +280,46 @@ seattle_pets |>
 ---
 class: your-turn
 
-# Your Turn 5
+# Your Turn 4
 
-Let's narrow this down -- what are the top 10 most popular dog breeds?
+**What are the top 10 most popular primary dog breeds?**
+
+`r emo::ji("bulb")` Hint: Try using `count()` and `slice_max()` again in your solution -- which argument to `slice_max()` specifies the number of rows to return?
 
 ---
 
-# Solution 5
+# Solution 4
 
 ```{r eval=FALSE}
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10)
+  slice_max(order_by = n, n = 10)
 ```
 
 ```{r echo=FALSE}
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10)
+  slice_max(order_by = n, n = 10)
 ```
 
 ---
 class: your-turn
 
-# Your Turn 6 -- last one!
+# Your Turn 5 -- last one!
 
-Visualize the top 10 dog breeds in a bar chart. 
+**Visualize the top 10 dog breeds, re-creating the plot below.**
 
 .pull-left[
 
-**Hint**: Start with your code from the previous exercise:
+`r emo::ji("bulb")` Hint: Start with your code from the previous exercise:
 
 ```{r eval=FALSE}
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10) |> 
+  slice_max(order_by = n, n = 10) |> 
   ____ # add code here
 ```
 
@@ -338,7 +330,7 @@ seattle_pets |>
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10) |> 
+  slice_max(order_by = n, n = 10) |> 
   ggplot(aes(primary_breed, n)) + 
   geom_col() + 
   coord_flip()
@@ -348,7 +340,7 @@ seattle_pets |>
 
 ---
 
-# Solution 6
+# Solution 5
 
 .pull-left[
 
@@ -356,7 +348,7 @@ seattle_pets |>
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10) |> 
+  slice_max(order_by = n, n = 10) |> 
   ggplot(aes(primary_breed, n)) + 
   geom_col() + 
   coord_flip()
@@ -369,7 +361,7 @@ seattle_pets |>
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 10) |> 
+  slice_max(order_by = n, n = 10) |> 
   ggplot(aes(primary_breed, n)) + 
   geom_col() + 
   coord_flip()
@@ -397,7 +389,7 @@ We would need to handle **factors** (categorical variables).
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 
-  slice_max(n, n = 20) |> 
+  slice_max(n, n = 10) |> 
   ggplot(aes(fct_reorder(primary_breed, n), n)) + 
   geom_col() + 
   coord_flip() + 
@@ -417,7 +409,7 @@ We would need to handle **dates**.
 
 .pull-right[
 
-```{r echo=FALSE, out.width = "90%"}
+```{r echo=FALSE, message = FALSE, warning = FALSE, out.width = "90%"}
 seattle_pets |> 
   mutate(
     license_issue_date = mdy(license_issue_date),

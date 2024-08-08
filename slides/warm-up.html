@@ -62,12 +62,20 @@ class: inverse
 
 ## 🚀 Warm-up
 
+.pull-left[
+&lt;img src="images/welcome/your-turn-example.png" width="577" /&gt;
 
-&lt;img src="images/welcome/your-turn-example.png" width="60%" /&gt;
+]
 
-* __Working together__ with your neighbors is encouraged.
+.pull-right[
+
+* __Work together__ with your neighbors
+
+* There are often several different ways of getting to the right answer.
 
 * After 1-2 minutes, we'll go over the answer together. And then move on to the next question. 
+
+]
 
 ---
 class: inverse, center, middle
@@ -106,7 +114,9 @@ class: your-turn
 
 # Your Turn 1
 
-Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?
+**Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?**
+
+💡 Hint: What function from dplyr gives you a quick glimpse of your data?
 
 
 
@@ -114,13 +124,13 @@ Read in the `seattle_pets` data and explore it. Can you recreate output that loo
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic L…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mi…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98…
 ```
 
 
@@ -141,13 +151,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic L…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mi…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98…
 ```
 
 ---
@@ -155,7 +165,10 @@ class: your-turn
 
 # Your Turn 2
 
-How many different species are represented in `seattle_pets`? How many pets of each species are there?
+**How many different species are represented in `seattle_pets`? How many pets of each species are there?**
+
+
+💡 Hint: What function from dplyr lets you count the unique values of one or more variables?
 
 ---
 
@@ -164,7 +177,8 @@ How many different species are represented in `seattle_pets`? How many pets of e
 .pull-left[
 
 ```r
-seattle_pets |&gt; count(species, sort = TRUE)
+seattle_pets |&gt; 
+  count(species, sort = TRUE)
 ```
 
 or...
@@ -196,55 +210,32 @@ class: your-turn
 
 # Your Turn 3
 
-What is the most popular pet name in this data set? *Hint* Look up the help documentation for `slice_max()` from dplyr.
+**What is the most popular pet name in this data set?**
+
+💡 Hint: Look up the help documentation for `slice_max()` from dplyr.
 
 ---
 
 # Solution 3
-
-
-```r
-seattle_pets |&gt; 
-  count(animal_name) |&gt; 
-  slice_max(n) |&gt; 
-  pull(animal_name)
-```
-
-
-
-```
-## [1] "Luna"
-```
-
----
-class: your-turn
-
-# Your Turn 4
-
-How many different primary dog breeds are there? 
-
----
-
-# Solution 4
 
 .pull-left[
 
 
 ```r
 seattle_pets |&gt; 
-  filter(species == "Dog") |&gt; 
-  distinct(primary_breed) |&gt; 
-  nrow()
+  count(animal_name) |&gt; 
+  slice_max(order_by = n) |&gt; 
+  pull(animal_name)
 ```
 
 or...
 
 
 ```r
-seattle_pets |&gt;
-  filter(species == "Dog") |&gt; 
-  pull(primary_breed) |&gt; 
-  n_distinct()
+seattle_pets |&gt; 
+  count(animal_name) |&gt; 
+  filter(n == max(n)) |&gt; 
+  pull(animal_name)
 ```
 
 ]
@@ -253,7 +244,7 @@ seattle_pets |&gt;
 
 
 ```
-## [1] 274
+## [1] "Luna"
 ```
 
 ]
@@ -261,20 +252,22 @@ seattle_pets |&gt;
 ---
 class: your-turn
 
-# Your Turn 5
+# Your Turn 4
 
-Let's narrow this down -- what are the top 10 most popular dog breeds?
+**What are the top 10 most popular primary dog breeds?**
+
+💡 Hint: Try using `count()` and `slice_max()` again in your solution -- which argument to `slice_max()` specifies the number of rows to return?
 
 ---
 
-# Solution 5
+# Solution 4
 
 
 ```r
 seattle_pets |&gt; 
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
-  slice_max(n, n = 10)
+  slice_max(order_by = n, n = 10)
 ```
 
 
@@ -297,33 +290,33 @@ seattle_pets |&gt;
 ---
 class: your-turn
 
-# Your Turn 6 -- last one!
+# Your Turn 5 -- last one!
 
-Visualize the top 10 dog breeds in a bar chart. 
+**Visualize the top 10 dog breeds, re-creating the plot below.**
 
 .pull-left[
 
-**Hint**: Start with your code from the previous exercise:
+💡 Hint: Start with your code from the previous exercise:
 
 
 ```r
 seattle_pets |&gt; 
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
-  slice_max(n, n = 10) |&gt; 
+  slice_max(order_by = n, n = 10) |&gt; 
   ____ # add code here
 ```
 
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-16-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-14-1.png" width="80%" /&gt;
 
 ]
 
 ---
 
-# Solution 6
+# Solution 5
 
 .pull-left[
 
@@ -332,7 +325,7 @@ seattle_pets |&gt;
 seattle_pets |&gt; 
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
-  slice_max(n, n = 10) |&gt; 
+  slice_max(order_by = n, n = 10) |&gt; 
   ggplot(aes(primary_breed, n)) + 
   geom_col() + 
   coord_flip()
@@ -341,7 +334,7 @@ seattle_pets |&gt;
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-16-1.png" width="80%" /&gt;
 
 ]
 
@@ -361,7 +354,7 @@ We would need to handle **factors** (categorical variables).
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-19-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-17-1.png" width="90%" /&gt;
 
 ]
 
@@ -376,12 +369,7 @@ We would need to handle **dates**.
 
 .pull-right[
 
-
-```
-## `summarise()` has grouped output by 'month'. You can override using the `.groups` argument.
-```
-
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-20-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="90%" /&gt;
 
 ]
 
