@@ -114,13 +114,13 @@ Read in the `seattle_pets` data and explore it. Can you recreate output that loo
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date [3m[38;5;246m&lt;chr&gt;[39m[23m "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
-## $ license_number     [3m[38;5;246m&lt;chr&gt;[39m[23m "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
-## $ animal_name        [3m[38;5;246m&lt;chr&gt;[39m[23m "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
-## $ species            [3m[38;5;246m&lt;chr&gt;[39m[23m "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      [3m[38;5;246m&lt;chr&gt;[39m[23m "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
-## $ secondary_breed    [3m[38;5;246m&lt;chr&gt;[39m[23m "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
-## $ zip_code           [3m[38;5;246m&lt;dbl&gt;[39m[23m 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
 ```
 
 
@@ -141,13 +141,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date [3m[38;5;246m&lt;chr&gt;[39m[23m "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
-## $ license_number     [3m[38;5;246m&lt;chr&gt;[39m[23m "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
-## $ animal_name        [3m[38;5;246m&lt;chr&gt;[39m[23m "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
-## $ species            [3m[38;5;246m&lt;chr&gt;[39m[23m "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      [3m[38;5;246m&lt;chr&gt;[39m[23m "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
-## $ secondary_breed    [3m[38;5;246m&lt;chr&gt;[39m[23m "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
-## $ zip_code           [3m[38;5;246m&lt;dbl&gt;[39m[23m 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
 ```
 
 ---
@@ -190,16 +190,6 @@ seattle_pets |&gt;
 ## 4 Pig         3
 ```
 ]
-
----
-
-class: your-turn
-
-# Your Turn 3
-
-What are the names of our three little pigs? (Pardon the reference)
-
-Display them as a character vector.
 
 ---
 class: your-turn

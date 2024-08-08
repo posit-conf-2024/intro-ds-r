@@ -220,16 +220,6 @@ seattle_pets |> count(species, sort = TRUE)
 ]
 
 ---
-
-class: your-turn
-
-# Your Turn 3
-
-What are the names of our three little pigs? (Pardon the reference)
-
-Display them as a character vector.
-
----
 class: your-turn
 
 # Your Turn 3
