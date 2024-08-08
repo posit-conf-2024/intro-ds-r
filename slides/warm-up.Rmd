@@ -95,7 +95,7 @@ class: inverse
 
 .center[
 ```{r session1-workspace, echo = FALSE, out.width = "60%", fig.align = "center"}
-knitr::include_graphics("images/session01/campsite_screenshot.png")
+knitr::include_graphics("images/welcome/campsite_screenshot.png")
 ```
 
 [conf.posit.academy](https://conf.posit.academy/)
@@ -113,7 +113,7 @@ Go ahead and open up the milestone for this Session 1.
 
 
 ```{r label, echo = FALSE, out.width="60%"}
-knitr::include_graphics("images/session01/your-turn-example.png")
+knitr::include_graphics("images/welcome/your-turn-example.png")
 ```
 
 ???
@@ -159,7 +159,7 @@ class: inverse, center, middle
 ## Done
 
 ```{r, echo = FALSE}
-knitr::include_graphics("images/session01/green-square.png")
+knitr::include_graphics("images/welcome/green-square.png")
 ```
 ]
 
@@ -168,7 +168,7 @@ knitr::include_graphics("images/session01/green-square.png")
 ## Help
 
 ```{r, echo = FALSE}
-knitr::include_graphics("images/session01/pink-square.png")
+knitr::include_graphics("images/welcome/pink-square.png")
 ```
 ]
 

@@ -222,7 +222,7 @@ class: inverse, center
 # rconf.posit.academy
 
 ```{r echo=FALSE, out.width="60%"}
-knitr::include_graphics("images/session01/campsite_screenshot.png")
+knitr::include_graphics("images/welcome/campsite_screenshot.png")
 ```
 
 ???
@@ -249,7 +249,7 @@ class: inverse, center
 ## Done
 
 ```{r g, echo = FALSE, out.width = "40%"}
-knitr::include_graphics("images/session01/green-square.png")
+knitr::include_graphics("images/welcome/green-square.png")
 ```
 ]
 
@@ -258,7 +258,7 @@ knitr::include_graphics("images/session01/green-square.png")
 ## Help
 
 ```{r p, echo = FALSE, out.width = "40%"}
-knitr::include_graphics("images/session01/pink-square.png")
+knitr::include_graphics("images/welcome/pink-square.png")
 ```
 ]
 
@@ -291,5 +291,5 @@ class: inverse, middle, center
 # Start here
 
 ```{r echo=FALSE, out.width="60%"}
-knitr::include_graphics("images/session01/campsite_warmup.png")
+knitr::include_graphics("images/welcome/campsite_warmup.png")
 ```
