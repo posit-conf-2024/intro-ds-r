@@ -631,7 +631,7 @@ class: middle chapter-slide tan
 # Dates
 
 ```{r echo=FALSE}
-bike_traffic <- readRDS('./data/session07/bike_traffic.rds')
+bike_traffic <- readRDS('./data/data-types/bike_traffic.rds')
 ```
 
 ---
