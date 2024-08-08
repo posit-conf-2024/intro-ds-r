@@ -1,7 +1,7 @@
 ---
 title: "Data types"
-subtitle: "Day 2, Session 7"
-date: "September 18, 2023"
+subtitle: "Session 1"
+date: "August 12th, 2024"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/academy-theme.css"]
