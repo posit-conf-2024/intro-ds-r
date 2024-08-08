@@ -1,6 +1,6 @@
 ---
 title: "Session 1 Welcome"
-subtitle: "Day 1, Session 1"
+subtitle: "Session 1"
 date: "August 12th, 2024"
 output:
   xaringan::moon_reader:
