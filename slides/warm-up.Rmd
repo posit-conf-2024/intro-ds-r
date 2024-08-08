@@ -1,7 +1,7 @@
 ---
-title: "Review & Practice"
-subtitle: "Day 1, Session 1"
-date: "September 17, 2023"
+title: "Warm-up"
+subtitle: "Session 1"
+date: "August 12th, 2024"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/academy-theme.css", "assets/session01.css"]
@@ -12,9 +12,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-params:
-  wifi_network: "Posit Conf 2023"
-  wifi_password: "conf2023"
 ---
 class:
 
