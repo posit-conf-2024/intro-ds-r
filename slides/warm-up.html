@@ -110,55 +110,358 @@ Read in the `seattle_pets` data and explore it. Can you recreate output that loo
 
 
 
-.space-saver[
 
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November 21 2019", "July 03 …
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S146576", "77412", "89…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "Oliver", "Silky Fran…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic Shorthair", "Domes…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA, NA, "Mix", "Mix", …
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 98136, 98115, 98103, 98…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
 ```
-]
 
-???
-
-1 minute
 
 ---
 
 ## Solution 1
-.pull-left[
+
 
 ```r
 library(tidyverse)
 
-seattle_pets &lt;- 
-  read_csv("data/seattle_pets.csv")
+seattle_pets &lt;- read_csv("data/seattle_pets.csv")
 
 glimpse(seattle_pets)
 ```
-]
 
-.pull-right.space-saver[
 
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November 21 2019", "July 03 …
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S146576", "77412", "89…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "Oliver", "Silky Fran…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic Shorthair", "Domes…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA, NA, "Mix", "Mix", …
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 98136, 98115, 98103, 98…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019", "November …
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S112996", "S14…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.", "Gemma", "O…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair", "Domestic…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA, "Mix", NA,…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115, 98116, 9813…
+```
+
+---
+class: your-turn
+
+# Your Turn 2
+
+How many different species are represented in `seattle_pets`? How many pets of each species are there?
+
+---
+
+# Solution 2
+
+.pull-left[
+
+```r
+seattle_pets |&gt; count(species, sort = TRUE)
+```
+
+or...
+
+
+```r
+seattle_pets |&gt; 
+  group_by(species) |&gt; 
+  summarize(n = n())
+```
+
+]
+
+.pull-right[
+
+```
+## # A tibble: 4 × 2
+##   species     n
+##   &lt;chr&gt;   &lt;int&gt;
+## 1 Dog     29729
+## 2 Cat     13935
+## 3 Goat       16
+## 4 Pig         3
 ```
 ]
 
+---
+
+class: your-turn
+
+# Your Turn 3
+
+What are the names of our three little pigs? (Pardon the reference)
+
+Display them as a character vector.
+
+---
+
+# Solution 3
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Pig") |&gt; 
+  pull(animal_name)
+```
+
+
+
+```
+## [1] "Millie"                "Calvin"                "Waffles Olivia McHart"
+```
+
+---
+class: your-turn
+
+# Your Turn 4
+
+What is the most popular pet name in this data set? *Hint* Look up the help documentation for `slice_max()` from dplyr.
+
+---
+
+# Solution 4
+
+
+```r
+seattle_pets |&gt; 
+  count(animal_name) |&gt; 
+  slice_max(n) |&gt; 
+  pull(animal_name)
+```
+
+
+
+```
+## [1] "Luna"
+```
+
+---
+class: your-turn
+
+# Your Turn 5
+
+How many different primary dog breeds are there? 
+
+---
+
+# Solution 5 
+
+.pull-left[
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Dog") |&gt; 
+  distinct(primary_breed) |&gt; 
+  nrow()
+```
+
+or...
+
+
+```r
+seattle_pets |&gt;
+  filter(species == "Dog") |&gt; 
+  pull(primary_breed) |&gt; 
+  n_distinct()
+```
+
+]
+
+.pull-right[
+
+
+```
+## [1] 274
+```
+
+]
+
+---
+class: your-turn
+
+# Your Turn 6
+
+Let's narrow this down -- what are the top 10 most popular dog breeds?
+
+---
+
+# Solution 6
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Dog") |&gt; 
+  count(primary_breed) |&gt; 
+  slice_max(n, n = 10)
+```
+
+
+```
+## # A tibble: 10 × 2
+##    primary_breed                                      n
+##    &lt;chr&gt;                                          &lt;int&gt;
+##  1 Retriever, Labrador                             3025
+##  2 Retriever, Golden                               1498
+##  3 Chihuahua, Short Coat                           1485
+##  4 German Shepherd                                  989
+##  5 Poodle, Miniature                                889
+##  6 Poodle, Standard                                 818
+##  7 Terrier                                          814
+##  8 Mixed Breed, Medium (up to 44 lbs fully grown)   787
+##  9 Australian Shepherd                              726
+## 10 Mixed Breed, Large (over 44 lbs fully grown)     717
+```
+
+---
+class: your-turn
+
+# Your Turn 7 -- last one!
+
+Visualize the top 10 dog breeds in a bar chart. 
+
+.pull-left[
+
+**Hint**: Start with your code from the previous exercise:
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Dog") |&gt; 
+  count(primary_breed) |&gt; 
+  slice_max(n, n = 10) |&gt; 
+  ____ # add code here
+```
+
+]
+
+.pull-right[
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="80%" /&gt;
+
+]
+
+---
+
+# Solution 7
+
+.pull-left[
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Dog") |&gt; 
+  count(primary_breed) |&gt; 
+  slice_max(n, n = 10) |&gt; 
+  ggplot(aes(primary_breed, n)) + 
+  geom_col() + 
+  coord_flip()
+```
+
+]
+
+.pull-right[
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-20-1.png" width="80%" /&gt;
+
+]
+
+---
+class: blue, middle, center
+
+# .big-text.white[Nice work! 🚀]
+
+
+---
+# 🤔 Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted visualize popular dog breeds in descending order?
+
+We would need to handle **factors** (categorical variables).
+]
+
+.pull-right[
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-21-1.png" width="90%" /&gt;
+
+]
+
+---
+# 🤔 Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted visualize trends in number of new pets by month?
+
+We would need to handle **dates**.
+]
+
+.pull-right[
+
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-22-1.png" width="90%" /&gt;
+
+]
+
+---
+# 🤔 Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted to explore pet names with a particular pattern?   
+
+e.g. Pets with "Sir" somewhere in their name.
+
+We would need to handle **strings**.
+]
+
+.pull-right[
+
+
+```
+## # A tibble: 22 × 2
+##    animal_name                          species
+##    &lt;chr&gt;                                &lt;chr&gt;  
+##  1 Sir Pounce                           Cat    
+##  2 Sir Furcifer                         Cat    
+##  3 Sir Thomas Sharpe                    Cat    
+##  4 Sir Digby Chicken Caesar             Cat    
+##  5 Sir Herlock Sholmes                  Cat    
+##  6 Sir Daniel                           Cat    
+##  7 Sir Dapplesox                        Cat    
+##  8 Sir Robin Cashmoney Pouncealot       Cat    
+##  9 Sir Mill                             Cat    
+## 10 Sir Tuna                             Cat    
+## 11 Sir Loafsalot                        Cat    
+## 12 Sir Tater Tot                        Dog    
+## 13 Sir CottonBall                       Dog    
+## 14 Sir Walter Leroy Phillips            Dog    
+## 15 Sir Waggleton                        Dog    
+## 16 Ravindale's Sir Tristan              Dog    
+## 17 Sir Francis                          Dog    
+## 18 Sir Oliver Grayson                   Dog    
+## 19 Sir Oliver                           Dog    
+## 20 Sir Sammy Haralson Lawrence III Esq. Dog    
+## 21 Sir Maximillion                      Dog    
+## 22 Sir Roman Snoopy II                  Dog
+```
+
+]
+
+---
+# Data types 
+
+Fortunately, the tidyverse provides us with tools to work with these different types of data...
+
+&lt;br&gt;
+.center[
+
+&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/stringr.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/forcats.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/lubridate.png?raw=true" width="25%" /&gt;
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
