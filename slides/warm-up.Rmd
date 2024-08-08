@@ -230,19 +230,28 @@ What are the names of our three little pigs? (Pardon the reference)
 Display them as a character vector.
 
 ---
+class: your-turn
+
+# Your Turn 3
+
+What is the most popular pet name in this data set? *Hint* Look up the help documentation for `slice_max()` from dplyr.
+
+---
 
 # Solution 3
 
 ```{r eval = FALSE}
 seattle_pets |> 
-  filter(species == "Pig") |> 
+  count(animal_name) |> 
+  slice_max(n) |> 
   pull(animal_name)
 ```
 
 
 ```{r echo = FALSE, message = FALSE}
 seattle_pets |> 
-  filter(species == "Pig") |> 
+  count(animal_name) |> 
+  slice_max(n) |> 
   pull(animal_name)
 ```
 
@@ -251,37 +260,11 @@ class: your-turn
 
 # Your Turn 4
 
-What is the most popular pet name in this data set? *Hint* Look up the help documentation for `slice_max()` from dplyr.
-
----
-
-# Solution 4
-
-```{r eval = FALSE}
-seattle_pets |> 
-  count(animal_name) |> 
-  slice_max(n) |> 
-  pull(animal_name)
-```
-
-
-```{r echo = FALSE, message = FALSE}
-seattle_pets |> 
-  count(animal_name) |> 
-  slice_max(n) |> 
-  pull(animal_name)
-```
-
----
-class: your-turn
-
-# Your Turn 5
-
 How many different primary dog breeds are there? 
 
 ---
 
-# Solution 5 
+# Solution 4
 
 .pull-left[
 
@@ -317,13 +300,13 @@ seattle_pets |>
 ---
 class: your-turn
 
-# Your Turn 6
+# Your Turn 5
 
 Let's narrow this down -- what are the top 10 most popular dog breeds?
 
 ---
 
-# Solution 6
+# Solution 5
 
 ```{r eval=FALSE}
 seattle_pets |> 
@@ -342,7 +325,7 @@ seattle_pets |>
 ---
 class: your-turn
 
-# Your Turn 7 -- last one!
+# Your Turn 6 -- last one!
 
 Visualize the top 10 dog breeds in a bar chart. 
 
@@ -375,7 +358,7 @@ seattle_pets |>
 
 ---
 
-# Solution 7
+# Solution 6
 
 .pull-left[
 
@@ -405,9 +388,9 @@ seattle_pets |>
 ]
 
 ---
-class: blue, middle, center
+class: inverse, middle, center
 
-# .big-text.white[Nice work! `r emo::ji("rocket")`]
+# Nice work!
 
 
 ---
@@ -448,11 +431,14 @@ We would need to handle **dates**.
 seattle_pets |> 
   mutate(
     license_issue_date = mdy(license_issue_date),
-    month = month(license_issue_date, label = TRUE)
+    month = month(license_issue_date, label = TRUE),
+    year = year(license_issue_date)
   ) |> 
+  group_by(month, year) |> 
+  summarize(n = n()) |> 
   group_by(month) |> 
-  count() |> 
-  ggplot(aes(month, n, group = 1)) + 
+  summarize(mean_licenses = mean(n))  |> 
+  ggplot(aes(month, mean_licenses, group = 1)) + 
   geom_point() + 
   geom_line()
 ```
