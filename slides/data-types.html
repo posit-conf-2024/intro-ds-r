@@ -99,18 +99,16 @@ breed_traits
 
 ```
 ## # A tibble: 195 × 15
-##   breed          affection shedding drooling openness playfulness protectiveness
-##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
-## 1 Retrievers (L…         5        4        2        5           5              3
-## 2 French Bulldo…         5        3        3        5           5              3
-## 3 German Shephe…         5        4        2        3           4              5
-## 4 Retrievers (G…         5        4        2        5           4              3
-## 5 Bulldogs               4        3        3        4           4              3
-## 6 Poodles                5        1        1        5           5              5
+##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
+##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
+## 1 Retrievers (…         5        4        2        5           5              3            5            5      5       3                 4
+## 2 French Bulld…         5        3        3        5           5              3            5            4      3       1                 3
+## 3 German Sheph…         5        4        2        3           4              5            5            5      5       3                 5
+## 4 Retrievers (…         5        4        2        5           4              3            5            5      3       1                 4
+## 5 Bulldogs              4        3        3        4           4              3            3            4      3       2                 3
+## 6 Poodles               5        1        1        5           5              5            4            5      4       4                 5
 ## # ℹ 189 more rows
-## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
-## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
-## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 
@@ -158,12 +156,10 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 1 × 15
-##   breed          affection shedding drooling openness playfulness protectiveness
-##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
-## 1 Yorkshire Ter…         5        1        1        5           4              5
-## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
-## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
-## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
+##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
+## 1 Yorkshire Te…         5        1        1        5           4              5            5            4      4       4                 4
+## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -190,13 +186,11 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 2 × 15
-##   breed          affection shedding drooling openness playfulness protectiveness
-##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
-## 1 Yorkshire Ter…         5        1        1        5           4              5
-## 2 Boston Terrie…         5        2        1        5           5              3
-## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
-## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
-## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
+##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
+## 1 Yorkshire Te…         5        1        1        5           4              5            5            4      4       4                 4
+## 2 Boston Terri…         5        2        1        5           5              3            3            4      4       2                 3
+## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -218,7 +212,6 @@ class: middle
 
 
 
-&lt;code class ='r hljs remark-code'&gt;breed_traits %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;filter(breed %in% c(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Yorkshire Terriers"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Boston Terriers"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"West Highland White Terriers"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Scottish Terriers"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Fox Terriers (Wire)"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;&amp;nbsp;&amp;nbsp;)&lt;br&gt;)&lt;/code&gt;
 
 ???
 
@@ -231,7 +224,6 @@ class: middle
 # Sniffing out terrier breeds
 
 
-&lt;code class ='r hljs remark-code'&gt;breed_traits %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;filter(breed %in% c(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Yorkshire &lt;span style="background-color:#e2d8d2"&gt;Terrier&lt;/span&gt;s"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Boston &lt;span style="background-color:#e2d8d2"&gt;Terrier&lt;/span&gt;s"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"West Highland White &lt;span style="background-color:#e2d8d2"&gt;Terrier&lt;/span&gt;s"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Scottish &lt;span style="background-color:#e2d8d2"&gt;Terrier&lt;/span&gt;s"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color:#dd1144"&gt;"Fox &lt;span style="background-color:#e2d8d2"&gt;Terrier&lt;/span&gt;s (Wire)"&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;&amp;nbsp;&amp;nbsp;)&lt;br&gt;)&lt;/code&gt;
 
 ???
 
@@ -255,22 +247,20 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 36 × 15
-##    breed         affection shedding drooling openness playfulness protectiveness
-##    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
-##  1 Yorkshire Te…         5        1        1        5           4              5
-##  2 Boston Terri…         5        2        1        5           5              3
-##  3 West Highlan…         5        3        1        4           5              5
-##  4 Scottish Ter…         5        2        2        3           4              5
-##  5 Soft Coated …         5        1        2        3           3              3
-##  6 Airedale Ter…         3        1        1        3           3              5
-##  7 Bull Terriers         4        3        1        4           4              3
-##  8 Russell Terr…         5        3        1        5           5              4
-##  9 Cairn Terrie…         4        2        1        3           4              4
-## 10 Staffordshir…         5        2        3        4           4              5
+##    breed        affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
+##    &lt;chr&gt;            &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
+##  1 Yorkshire T…         5        1        1        5           4              5            5            4      4       4                 4
+##  2 Boston Terr…         5        2        1        5           5              3            3            4      4       2                 3
+##  3 West Highla…         5        3        1        4           5              5            4            3      4       5                 4
+##  4 Scottish Te…         5        2        2        3           4              5            4            3      3       4                 4
+##  5 Soft Coated…         5        1        2        3           3              3            3            3      4       3                 3
+##  6 Airedale Te…         3        1        1        3           3              5            3            3      3       3                 3
+##  7 Bull Terrie…         4        3        1        4           4              3            3            3      4       3                 4
+##  8 Russell Ter…         5        3        1        5           5              4            4            3      5       4                 5
+##  9 Cairn Terri…         4        2        1        3           4              4            3            3      3       4                 3
+## 10 Staffordshi…         5        2        3        4           4              5            5            5      4       3                 4
 ## # ℹ 26 more rows
-## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
-## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
-## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -389,32 +379,19 @@ fruit
 ```
 
 ```
-##  [1] "apple"             "apricot"           "avocado"          
-##  [4] "banana"            "bell pepper"       "bilberry"         
-##  [7] "blackberry"        "blackcurrant"      "blood orange"     
-## [10] "blueberry"         "boysenberry"       "breadfruit"       
-## [13] "canary melon"      "cantaloupe"        "cherimoya"        
-## [16] "cherry"            "chili pepper"      "clementine"       
-## [19] "cloudberry"        "coconut"           "cranberry"        
-## [22] "cucumber"          "currant"           "damson"           
-## [25] "date"              "dragonfruit"       "durian"           
-## [28] "eggplant"          "elderberry"        "feijoa"           
-## [31] "fig"               "goji berry"        "gooseberry"       
-## [34] "grape"             "grapefruit"        "guava"            
-## [37] "honeydew"          "huckleberry"       "jackfruit"        
-## [40] "jambul"            "jujube"            "kiwi fruit"       
-## [43] "kumquat"           "lemon"             "lime"             
-## [46] "loquat"            "lychee"            "mandarine"        
-## [49] "mango"             "mulberry"          "nectarine"        
-## [52] "nut"               "olive"             "orange"           
-## [55] "pamelo"            "papaya"            "passionfruit"     
-## [58] "peach"             "pear"              "persimmon"        
-## [61] "physalis"          "pineapple"         "plum"             
-## [64] "pomegranate"       "pomelo"            "purple mangosteen"
-## [67] "quince"            "raisin"            "rambutan"         
-## [70] "raspberry"         "redcurrant"        "rock melon"       
-## [73] "salal berry"       "satsuma"           "star fruit"       
-## [76] "strawberry"        "tamarillo"         "tangerine"        
+##  [1] "apple"             "apricot"           "avocado"           "banana"            "bell pepper"       "bilberry"         
+##  [7] "blackberry"        "blackcurrant"      "blood orange"      "blueberry"         "boysenberry"       "breadfruit"       
+## [13] "canary melon"      "cantaloupe"        "cherimoya"         "cherry"            "chili pepper"      "clementine"       
+## [19] "cloudberry"        "coconut"           "cranberry"         "cucumber"          "currant"           "damson"           
+## [25] "date"              "dragonfruit"       "durian"            "eggplant"          "elderberry"        "feijoa"           
+## [31] "fig"               "goji berry"        "gooseberry"        "grape"             "grapefruit"        "guava"            
+## [37] "honeydew"          "huckleberry"       "jackfruit"         "jambul"            "jujube"            "kiwi fruit"       
+## [43] "kumquat"           "lemon"             "lime"              "loquat"            "lychee"            "mandarine"        
+## [49] "mango"             "mulberry"          "nectarine"         "nut"               "olive"             "orange"           
+## [55] "pamelo"            "papaya"            "passionfruit"      "peach"             "pear"              "persimmon"        
+## [61] "physalis"          "pineapple"         "plum"              "pomegranate"       "pomelo"            "purple mangosteen"
+## [67] "quince"            "raisin"            "rambutan"          "raspberry"         "redcurrant"        "rock melon"       
+## [73] "salal berry"       "satsuma"           "star fruit"        "strawberry"        "tamarillo"         "tangerine"        
 ## [79] "ugli fruit"        "watermelon"
 ```
 
@@ -441,10 +418,8 @@ str_subset(fruit, " ")
 ```
 
 ```
-##  [1] "bell pepper"       "blood orange"      "canary melon"     
-##  [4] "chili pepper"      "goji berry"        "kiwi fruit"       
-##  [7] "purple mangosteen" "rock melon"        "salal berry"      
-## [10] "star fruit"        "ugli fruit"
+##  [1] "bell pepper"       "blood orange"      "canary melon"      "chili pepper"      "goji berry"        "kiwi fruit"       
+##  [7] "purple mangosteen" "rock melon"        "salal berry"       "star fruit"        "ugli fruit"
 ```
 
 ---
@@ -481,16 +456,16 @@ gss_cat
 
 ```
 ## # A tibble: 21,483 × 9
-##    year marital         age race  rincome        partyid     relig denom tvhours
-##   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;       &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;
-## 1  2000 Never married    26 White $8000 to 9999  Ind,near r… Prot… Sout…      12
-## 2  2000 Divorced         48 White $8000 to 9999  Not str re… Prot… Bapt…      NA
-## 3  2000 Widowed          67 White Not applicable Independent Prot… No d…       2
-## 4  2000 Never married    39 White Not applicable Ind,near r… Orth… Not …       4
-## 5  2000 Divorced         25 White Not applicable Not str de… None  Not …       1
-## 6  2000 Married          25 White $20000 - 24999 Strong dem… Prot… Sout…      NA
-## 7  2000 Never married    36 White $25000 or more Not str re… Chri… Not …       3
-## 8  2000 Divorced         44 White $7000 to 7999  Ind,near d… Prot… Luth…      NA
+##    year marital         age race  rincome        partyid            relig              denom             tvhours
+##   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;              &lt;fct&gt;              &lt;fct&gt;               &lt;int&gt;
+## 1  2000 Never married    26 White $8000 to 9999  Ind,near rep       Protestant         Southern baptist       12
+## 2  2000 Divorced         48 White $8000 to 9999  Not str republican Protestant         Baptist-dk which       NA
+## 3  2000 Widowed          67 White Not applicable Independent        Protestant         No denomination         2
+## 4  2000 Never married    39 White Not applicable Ind,near rep       Orthodox-christian Not applicable          4
+## 5  2000 Divorced         25 White Not applicable Not str democrat   None               Not applicable          1
+## 6  2000 Married          25 White $20000 - 24999 Strong democrat    Protestant         Southern baptist       NA
+## 7  2000 Never married    36 White $25000 or more Not str republican Christian          Not applicable          3
+## 8  2000 Divorced         44 White $7000 to 7999  Ind,near dem       Protestant         Lutheran-mo synod      NA
 ## # ℹ 21,475 more rows
 ```
 
@@ -545,8 +520,7 @@ levels(gss_cat$marital)
 ```
 
 ```
-## [1] "No answer"     "Never married" "Separated"     "Divorced"     
-## [5] "Widowed"       "Married"
+## [1] "No answer"     "Never married" "Separated"     "Divorced"      "Widowed"       "Married"
 ```
 
 
@@ -555,7 +529,7 @@ levels(gss_cat$marital)
 
 &gt; * `fct_inorder()`: by the order in which they first appear.
 
-&gt; * `fct_infreq()`: by number of observations with each level (largest first)
+&gt; * `fct_infreq()`: by number of observations within each level (largest first)
 
 &gt; * `fct_inseq()`: by numeric value of level.
 
@@ -775,13 +749,13 @@ bike_traffic %&gt;%
 
 ```
 ## # A tibble: 85,810 × 6
-##   timestamp           date               crossing direction bike_count ped_count
-##   &lt;dttm&gt;              &lt;fct&gt;              &lt;fct&gt;    &lt;fct&gt;          &lt;int&gt;     &lt;int&gt;
-## 1 2019-02-28 23:00:00 02/28/2019 11:00:… Burke G… North              0         0
-## 2 2019-02-28 22:00:00 02/28/2019 10:00:… Burke G… North              0         0
-## 3 2019-02-28 21:00:00 02/28/2019 09:00:… Burke G… North              2         0
-## 4 2019-02-28 20:00:00 02/28/2019 08:00:… Burke G… North              2         1
-## 5 2019-02-28 19:00:00 02/28/2019 07:00:… Burke G… North              6         0
+##   timestamp           date                   crossing           direction bike_count ped_count
+##   &lt;dttm&gt;              &lt;fct&gt;                  &lt;fct&gt;              &lt;fct&gt;          &lt;int&gt;     &lt;int&gt;
+## 1 2019-02-28 23:00:00 02/28/2019 11:00:00 PM Burke Gilman Trail North              0         0
+## 2 2019-02-28 22:00:00 02/28/2019 10:00:00 PM Burke Gilman Trail North              0         0
+## 3 2019-02-28 21:00:00 02/28/2019 09:00:00 PM Burke Gilman Trail North              2         0
+## 4 2019-02-28 20:00:00 02/28/2019 08:00:00 PM Burke Gilman Trail North              2         1
+## 5 2019-02-28 19:00:00 02/28/2019 07:00:00 PM Burke Gilman Trail North              6         0
 ## # ℹ 85,805 more rows
 ```
 
@@ -823,13 +797,15 @@ ymd("1969-07-20") %&gt;%
 ```
 
 ---
-# Next up: Project work
+class: center
 
-**Option 1:** Employee Attrition project
+# Remember your cheatsheets!
 
-**Option 2:** Explore your own data
+.center[
 
-⏰ Until coffee break (3:00 PM)
+&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/stringr.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/forcats.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/lubridate.png?raw=true" width="25%" /&gt;
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

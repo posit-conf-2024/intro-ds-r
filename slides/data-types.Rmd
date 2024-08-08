@@ -554,7 +554,7 @@ levels(gss_cat$marital)
 
 > * `fct_inorder()`: by the order in which they first appear.
 
-> * `fct_infreq()`: by number of observations with each level (largest first)
+> * `fct_infreq()`: by number of observations within each level (largest first)
 
 > * `fct_inseq()`: by numeric value of level.
 
@@ -797,10 +797,18 @@ ymd("1969-07-20") %>%
 ```
 
 ---
-# Next up: Project work
+class: center
 
-**Option 1:** Employee Attrition project
+# Remember your cheatsheets!
 
-**Option 2:** Explore your own data
+.center[
 
-⏰ Until coffee break (3:00 PM)
+```{r echo=FALSE, out.width="25%"}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/stringr.png?raw=true")
+
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/forcats.png?raw=true")
+
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/lubridate.png?raw=true")
+```
+
+]
