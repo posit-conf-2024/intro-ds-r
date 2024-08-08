@@ -18,6 +18,7 @@ class:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(fig.retina = 3)
+
 library(tidyverse)
 ```
 
@@ -91,65 +92,36 @@ We're going to start off with some review of what we've learned for the past sev
 ---
 class: inverse
 
-# Go to **Conf Session 1 - Review**
+# Go to **Conf - Warm-up**
 
 .center[
 ```{r session1-workspace, echo = FALSE, out.width = "60%", fig.align = "center"}
-knitr::include_graphics("images/welcome/campsite_screenshot.png")
+knitr::include_graphics("images/welcome/campsite_warmup.png")
 ```
 
-[conf.posit.academy](https://conf.posit.academy/)
+[rconf.posit.academy](https://rconf.posit.academy/)
 ]
-
-???
-
-for this session, we'll be doing our work in the Academy website (conf.posit.academy)
-
-Go ahead and open up the milestone for this Session 1.
 
 ---
 
-## `r emo::ji("rocket")` Rapid fire review 
+## `r emo::ji("rocket")` Warm-up
 
-
-```{r label, echo = FALSE, out.width="60%"}
+.pull-left[
+```{r label, echo = FALSE}
 knitr::include_graphics("images/welcome/your-turn-example.png")
 ```
 
-???
+]
 
-What we'll do:
+.pull-right[
 
-I'm going to give you a prompt with a short tidyverse task, and you'll work to recreate it. 
+* __Work together__ with your neighbors
 
-You'll do your work in the Quarto document you have open so you have a record of your code. You can create as many new code chunks as you like in here. 
-
-
----
-
-<!-- TODO: update -->
-
-# Review challenge
-
-* __Working together__ with your groupmates is encouraged.
-
---
+* There are often several different ways of getting to the right answer.
 
 * After 1-2 minutes, we'll go over the answer together. And then move on to the next question. 
 
---
-
-* Everyone gets a small prize at the end! `r emo::ji("tada")`
-
-???
-
-Working together is okay (and encouraged)
-
-We'll go over the answer once I see that most people have finished.
-
-There are 20 prompts -- we may get through all of them (or not). But there will be a prize for everyone at the end.
-
-I should also note that there's a bit of a mish mash of difficulty. But The main idea is that you exercise some tidyverse recall and get warmed up.
+]
 
 ---
 class: inverse, center, middle
@@ -178,111 +150,87 @@ You'll use the sticky system to signal that you're done or your need help
 
 ---
 class: center, middle, inverse
-background-image: url(https://images.unsplash.com/photo-1579780864813-863e246d3bc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80)
 background-position: center
 background-size: cover
 
 ```{r load-data, include=FALSE}
 library(tidyverse)
 
-readxl::read_excel("data/session01/NationalOutbreakPublicDataTool.xlsx", sheet = 1) %>%
-  janitor::clean_names() %>%
-  readr::write_csv("data/session01/outbreaks.csv")
+seattle_pets <- read_csv("data/warm-up/seattle_pets.csv")
 ```
 
-# .big-text[`outbreaks`]
+# Seattle pets
 
-???
-
-We'll be working with data about foodborne and waterborne disease outbreaks spread by contact with environmental sources or infected people or animals. I'll refer to this data set as `outbreaks`. It comes from the CDC's National Outbreak Reporting System (NORS).
-
-First things first, let's take a look a what's in this data set. 
-
-So *here* is your first prompt:
+# `r emo::ji("dog")` `r emo::ji("cat")`
 
 ---
 class: your-turn
 
 # Your Turn 1
 
-Read in the data and explore it. Can you recreate output that looks like this?
+**Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?**
+
+`r emo::ji("bulb")` Hint: What function from dplyr gives you a quick glimpse of your data?
 
 ```{r read-in-outbreaks, include = FALSE}
-outbreaks <- readr::read_csv("data/session01/outbreaks.csv")
+seattle_pets <- readr::read_csv("data/warm-up/seattle_pets.csv")
 ```
 
-.space-saver[
 ```{r echo = FALSE}
-glimpse(outbreaks)
-#str(outbreaks)
+glimpse(seattle_pets)
 ```
-]
 
-???
-
-1 minute
 
 ---
 
 ## Solution 1
-.pull-left[
+
 ```{r sol-1, eval = FALSE}
 library(tidyverse)
 
-outbreaks <- 
-  read_csv("data/outbreaks.csv")
+seattle_pets <- read_csv("data/seattle_pets.csv")
 
-glimpse(outbreaks)
+glimpse(seattle_pets)
 ```
-]
 
-.pull-right.space-saver[
 ```{r echo = FALSE, message = FALSE}
-glimpse(outbreaks)
+glimpse(seattle_pets)
 ```
-]
 
 ---
 class: your-turn
 
 # Your Turn 2
 
-What is the **earliest year** on record in this data set? __The latest__? 
+**How many different species are represented in `seattle_pets`? How many pets of each species are there?**
 
-Answer the questions by creating two tables that are sorted.
+
+`r emo::ji("bulb")` Hint: What function from dplyr lets you count the unique values of one or more variables?
 
 ---
 
-## Solution 2
+# Solution 2
 
 .pull-left[
-```{r eval = FALSE, echo = TRUE}
-outbreaks %>%
-  arrange(year)
+```{r eval = FALSE}
+seattle_pets |> 
+  count(species, sort = TRUE)
 ```
 
-.space-saver[
-```{r echo = FALSE}
-outbreaks %>%
-  arrange(year) %>% 
-  reactable_preview()
+or...
+
+```{r eval = FALSE}
+seattle_pets |> 
+  group_by(species) |> 
+  summarize(n = n())
 ```
-]
+
 ]
 
 .pull-right[
-```{r eval = FALSE}
-outbreaks %>%
-  arrange(desc(year))
+```{r echo = FALSE, message = FALSE}
+seattle_pets |> count(species, sort = TRUE)
 ```
-
-.space-saver[
-```{r echo = FALSE}
-outbreaks %>%
-  arrange(desc(year)) %>% 
-  reactable_preview()
-```
-]
 ]
 
 ---
@@ -290,766 +238,232 @@ class: your-turn
 
 # Your Turn 3
 
-The `state` variable appears to include US locations -- is the data limited to the 50 states? 
+**What is the most popular pet name in this data set?**
 
-Produce a table that displays all the unique values of this variable.
-
+`r emo::ji("bulb")` Hint: Look up the help documentation for `slice_max()` from dplyr.
 
 ---
 
-## Solution 3
+# Solution 3
 
-```{r sol-3, echo = TRUE, eval = FALSE}
-outbreaks %>%
-  distinct(state)
+.pull-left[
+
+```{r eval = FALSE}
+seattle_pets |> 
+  count(animal_name) |> 
+  slice_max(order_by = n) |> 
+  pull(animal_name)
 ```
 
-```{r, echo = FALSE, eval = TRUE}
-outbreaks %>%
-  distinct(state) %>% 
-  reactable_preview()
+or...
+
+```{r eval=FALSE}
+seattle_pets |> 
+  count(animal_name) |> 
+  filter(n == max(n)) |> 
+  pull(animal_name)
 ```
+
+]
+
+.pull-right[
+
+```{r echo = FALSE, message = FALSE}
+seattle_pets |> 
+  count(animal_name) |> 
+  slice_max(order_by = n) |> 
+  pull(animal_name)
+```
+
+]
 
 ---
 class: your-turn
 
 # Your Turn 4
 
-What are the different etiologies that have been recorded in this data set, and how often do they appear in the data? Display your results in a table like the one below.
+**What are the top 10 most popular primary dog breeds?**
 
-```{r echo = FALSE}
-outbreaks %>%
-  count(etiology) %>% 
-  reactable_preview()
-```
+`r emo::ji("bulb")` Hint: Try using `count()` and `slice_max()` again in your solution -- which argument to `slice_max()` specifies the number of rows to return?
 
 ---
 
-## Solution 4
-
-```{r eval = FALSE}
-outbreaks %>%
-  count(etiology)
-```
-
-```{r echo = FALSE}
-outbreaks %>%
-  count(etiology) %>% 
-  reactable_preview()
-```
-
-
----
-class: your-turn
-
-# Your Turn 5
-
-Let's turn our attention to only observations where the primary mode of infection is Food. Using that criterion, can you reproduce the table below? 
-
-**Note:** `ifsac_category` refers to food category (IFSAC = Interagency Food Safety Analytics Collaboration, part of the CDC)
-
-```{r echo = FALSE}
-outbreaks %>%
-  filter(primary_mode == "Food") %>% 
-  count(ifsac_category) %>% 
-  reactable_preview()
-```
-
-???
-
----
-
-## Solution 5
-
-```{r echo = TRUE, eval = FALSE}
-outbreaks %>%
-  filter(primary_mode == "Food") %>% 
-  count(ifsac_category)
-```
-
-```{r echo = FALSE}
-outbreaks %>%
-  filter(primary_mode == "Food") %>% 
-  count(ifsac_category) %>% 
-  reactable_preview()
-```
-
-
----
-class: your-turn
-
-# Your Turn 6
-
-.pull-left[
-Explore the relationship between `month` and the number of illnesses with a series of **boxplots** like the one to the right. Can you recreate it? 
-
-**Hint:** Try using the `group` aesthetic to tell R that you'd like to create a boxplot for each unique value of `month`.
-]
-
-.pull-right[
-```{r sol-6, echo = FALSE}
-outbreaks %>% 
-  ggplot(aes(x = month, y = illnesses)) + 
-  geom_boxplot(aes(group = month)) #<<
-```
-]
-
-
-???
-
-Check documentation for use of the argument that allows you to create a new boxplot for each grouping.
-
----
-
-## Solution 6
-
-.wide-left[
-```{r ref.label = "sol-6", fig.show = "hide"}
-```
-
-The outlier here makes it hard to see what's going on. Let's modify this.
-
-]
-
-.narrow-right[
-```{r ref.label = "sol-6", echo = FALSE}
-```
-]
-
-???
-
-But the outlier here makes it hard to see what's going on. Let's modify this.
-
----
-class: your-turn
-
-# Your Turn 7
-
-The outlier we just observed represents the outbreak associated with the highest number of illnesses. Which observation is this?
-
-  1. Display **only** this observation in a table. 
-
-  2. Then, recreate the boxplots **without** this observation.
-  
-Here is the code we just used to make the boxplots in the last exercise:
+# Solution 4
 
 ```{r eval=FALSE}
-outbreaks %>% 
-  ggplot(aes(x = month, y = illnesses)) + 
-  geom_boxplot(aes(group = month))
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10)
 ```
 
+```{r echo=FALSE}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10)
+```
 
 ---
-class: space-saver
+class: your-turn
 
-## Solution 7
+# Your Turn 5 -- last one!
+
+**Visualize the top 10 dog breeds, re-creating the plot below.**
 
 .pull-left[
 
-```{r eval = FALSE}
-outbreaks %>%
-  filter(illnesses == max(illnesses))
+`r emo::ji("bulb")` Hint: Start with your code from the previous exercise:
+
+```{r eval=FALSE}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10) |> 
+  ____ # add code here
 ```
 
 ]
 
 .pull-right[
-```{r echo = FALSE}
-outbreaks %>%
-  filter(illnesses == max(illnesses)) %>% 
-  reactable_preview()
+```{r echo=FALSE, out.width="80%"}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10) |> 
+  ggplot(aes(primary_breed, n)) + 
+  geom_col() + 
+  coord_flip()
 ```
+
+]
+
+---
+
+# Solution 5
+
+.pull-left[
+
+```{r eval=FALSE}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10) |> 
+  ggplot(aes(primary_breed, n)) + 
+  geom_col() + 
+  coord_flip()
+```
+
+]
+
+.pull-right[
+```{r echo=FALSE, out.width="80%"}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10) |> 
+  ggplot(aes(primary_breed, n)) + 
+  geom_col() + 
+  coord_flip()
+```
+
+]
+
+---
+class: inverse, middle, center
+
+# Nice work!
+
+
+---
+# `r emo::ji("thinking_face")` Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted visualize popular dog breeds in descending order?
+
+We would need to handle **factors** (categorical variables).
+]
+
+.pull-right[
+```{r echo=FALSE, out.width = "90%"}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(n, n = 10) |> 
+  ggplot(aes(fct_reorder(primary_breed, n), n)) + 
+  geom_col() + 
+  coord_flip() + 
+  labs(x = "primary_breed")
+```
+
+]
+
+---
+# `r emo::ji("thinking_face")` Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted visualize trends in number of new pets by month?
+
+We would need to handle **dates**.
+]
+
+.pull-right[
+
+```{r echo=FALSE, message = FALSE, warning = FALSE, out.width = "90%"}
+seattle_pets |> 
+  mutate(
+    license_issue_date = mdy(license_issue_date),
+    month = month(license_issue_date, label = TRUE),
+    year = year(license_issue_date)
+  ) |> 
+  group_by(month, year) |> 
+  summarize(n = n()) |> 
+  group_by(month) |> 
+  summarize(mean_licenses = mean(n))  |> 
+  ggplot(aes(month, mean_licenses, group = 1)) + 
+  geom_point() + 
+  geom_line()
+```
+
+]
+
+---
+# `r emo::ji("thinking_face")` Exploring `seattle_pets` further...
+
+.pull-left[
+What if we wanted to explore pet names with a particular pattern?   
+
+e.g. Pets with "Sir" somewhere in their name.
+
+We would need to handle **strings**.
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+seattle_pets |> 
+  filter(str_detect(animal_name, "Sir ")) |> 
+  select(animal_name, species) |> 
+  print(n = "Inf")
+```
+
+]
+
+---
+# Data types 
+
+Fortunately, the tidyverse provides us with tools to work with these different types of data...
 
 <br>
 
-]
+.center[
 
---
+```{r echo=FALSE, out.width="25%"}
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/stringr.png?raw=true")
 
-.pull-left[
-```{r sol-7-fig, fig.asp = 1/2, fig.show = "hide"}
-outbreaks %>%
-  filter(illnesses != max(illnesses)) %>% #<<
-  ggplot(aes(x = month, y = illnesses)) + 
-  geom_boxplot(aes(group = month))
-```
-]
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/forcats.png?raw=true")
 
-.pull-right[
-```{r ref.label= "sol-7-fig", echo = FALSE, fig.asp = 3/5}
-
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/lubridate.png?raw=true")
 ```
 
 ]
-
----
-class: your-turn
-
-# Your Turn 8
-
-Which outbreaks lead to the highest number of illnesses? 
-
-Display these observations in a table from greatest to fewest illnesses:
-
-```{r echo = FALSE}
-outbreaks %>% arrange(desc(illnesses)) %>% 
-  reactable_preview()
-```
-
-
----
-class: space-saver
-
-## Solution 8
-
-```{r eval = FALSE}
-outbreaks %>% arrange(desc(illnesses))
-```
-
-```{r echo = FALSE}
-outbreaks %>% arrange(desc(illnesses)) %>% 
-  reactable_preview()
-```
-
-
----
-class: your-turn
-
-# Your Turn 9
-
-How many different primary modes of illness are in this data set? How often does each appear in the data?
-
-Order the rows so that the most common primary mode appears at the top. 
-
----
-
-## Solution 9
-
-```{r eval = FALSE}
-outbreaks %>%
-  count(primary_mode, sort = TRUE)
-```
-
-or...
-
-```{r eval = FALSE}
-outbreaks %>%
-  count(primary_mode) %>% 
-  arrange(desc(n))
-```
-
-```{r echo = FALSE}
-outbreaks %>%
-  count(primary_mode) %>% 
-  arrange(desc(n)) %>% 
-  reactable_preview()
-```
-
-???
-
-Looks like the most common primary mode for outbreaks in this particular data set is person-to-person.
-
----
-class: your-turn
-
-# Your Turn 10
-
-.pull-left[Can you recreate this visualization of the **primary modes** of infection?
-
-_Hint:_ Look up the help page for `coord_flip()`.
-]
-
-.pull-right[
-```{r echo = FALSE}
-outbreaks %>%
-  ggplot(mapping = aes(x = primary_mode)) + 
-  geom_bar() +
-  coord_flip() 
-```
-]
-
-???
-
----
-
-## Solution 10
-
-.pull-left[
-```{r sol-10, eval = FALSE}
-outbreaks %>%
-  ggplot(aes(x = primary_mode)) + 
-  geom_bar() +
-  coord_flip() #<<
-```
-]
-
-.pull-right[
-```{r ref.label = "sol-10", echo = FALSE}
-
-```
-]
-
-???
-
-Notice coord_flip()
-
-If your first inclination was to use count() then you might have come up with an answer like...
-
----
-
-## Solution 10 - alternative
-
-.wide-left[
-```{r sol-10-alt, eval = FALSE}
-outbreaks %>%
-  count(primary_mode, name = "count") %>% #<<
-  ggplot(aes(x = primary_mode, y = count)) + 
-  geom_col() + #<<
-  coord_flip()
-```
-]
-
-.narrow-right[
-```{r ref.label = "sol-10-alt", echo = FALSE}
-
-```
-]
-
-???
-
-This one, but it's a little less efficient code-wise.
-
----
-class: your-turn
-
-# Your Turn 11 
-
-Let's take a closer look at outbreaks for which the primary mode of infection is **Animal Contact**. 
-
-How many Animal Contact outbreaks has each _individual_ state had? Recreate the table below.
-
-```{r echo = FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Animal Contact",
-    state != "Multistate"
-  ) %>% 
-  count(state, sort = TRUE) %>% 
-  reactable_preview()
-```
-
-_Hint_: You will need to remove observations where `state` is equal to "Multistate".
-
-
----
-
-## Solution 11
-
-```{r eval = FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Animal Contact",
-    state != "Multistate"
-  ) %>% 
-  count(state, sort = TRUE)
-```
-
-```{r echo = FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Animal Contact",
-    state != "Multistate"
-  ) %>% 
-  count(state, sort = TRUE) %>% 
-  reactable_preview()
-```
-
----
-class: your-turn
-
-# Your Turn 12
-
-.left-column35[
-Now that we know the top 3 states are **Ohio**, **Minnesota**, and **Idaho**, recreate this table:
-
-* Has only the Animal Contact outbreaks for those locations  
-
-* Column names with "animal" appear after `state`
-
-* Drop the `primary_mode` column
-]
-
-.right-column63.space-saver[
-```{r sol-12, echo = FALSE}
-outbreaks %>%
-  filter(
-    primary_mode == "Animal Contact", 
-    state %in% c("Ohio", "Minnesota", "Idaho")
-  ) %>% 
-  relocate(
-    contains("animal"), 
-    .after = state
-  ) %>% 
-  select(-primary_mode) %>% 
-  reactable_preview()
-```
-]
-
----
-class: space-saver
-
-## Solution 12
-
-```{r eval = FALSE}
-outbreaks %>%
-  filter(
-    primary_mode == "Animal Contact", 
-    state %in% c("Ohio", "Minnesota", "Idaho")
-  ) %>% 
-  relocate(
-    contains("animal"), 
-    .after = state
-  ) %>% 
-  select(-primary_mode)
-```
-
-```{r ref.label = "sol-12", echo = FALSE}
-
-```
-
----
-class: your-turn
-
-# Your Turn 13
-
-.pull-left[Visualize the relationship between **year** and number of **illnesses** with a smooth line plot:
-
-* Before you plot, exclude the outlier we previously identified (the outbreak with the max number of illnesses). 
-
-* Color each line by its primary mode.]
-
-.pull-right[
-
-```{r echo = FALSE, message = FALSE}
-outbreaks %>%
-  filter(illnesses != max(illnesses)) %>% 
-  ggplot(aes(y = illnesses, x = year, color = primary_mode)) + 
-  geom_smooth(se = FALSE)
-```
-]
-
----
-
-## Solution 13
-
-.pull-left[
-```{r sol-13, eval = FALSE, message = FALSE}
-outbreaks %>%
-  filter(illnesses != max(illnesses)) %>% 
-  ggplot(aes(y = illnesses, x = year, color = primary_mode)) + 
-  geom_smooth(se = FALSE)
-```
-]
-
-.pull-right[
-```{r ref.label = "sol-13", echo = FALSE, message = FALSE}
-```
-]
-
-
----
-class: your-turn
-
-# Your Turn 14
-
-Visualize the number of illnesses in **Washington DC**, grouped by **primary mode** of infection using a "violin plot". *Hint:* You may need to investigate `geom_violin()`.
-
-(Don't worry if your plot dimensions look different than the plot below.)
-
-```{r sol-14, echo = FALSE, fig.height = 4.5, fig.width = 11, out.width = "70%"}
-outbreaks %>% 
-  filter(state == "Washington DC") %>%
-  ggplot(aes(x = primary_mode, y = illnesses)) +
-  geom_violin(aes(color = primary_mode)) + 
-  geom_point(alpha = 0.3) # any alpha value < 1 is OK
-```
-
----
-
-## Solution 14
-
-
-```{r ref.label = "sol-14", fig.show = "hide", message = FALSE, warning = FALSE}
-```
-
-
-```{r ref.label = "sol-14", echo = FALSE, message = FALSE, fig.height = 4.5, fig.width = 11, out.width = "75%", warning = FALSE}
-```
-
----
-class: your-turn
-
-# Your Turn 15
-
-Let's focus only on **Washington DC** and **food borne illnesses**. Show the most recent outbreaks in a table from most recent to least recent.
-
-_Hint_: Which two columns contain date information?
-
-```{r echo=FALSE}
-outbreaks %>% 
-  filter(
-    state == "Washington DC" & 
-    primary_mode == "Food"
-    ) %>%
-  arrange(desc(year), desc(month)) %>% 
-  reactable_preview()
-```
-
-
----
-
-## Solution 15 
-
-.left-column40[
-```{r eval = FALSE}
-outbreaks %>% 
-  filter(
-    state == "Washington DC" & 
-    primary_mode == "Food"
-  ) %>%
-  arrange(desc(year), desc(month))
-```
-]
-
-.right-column55[
-```{r echo = FALSE}
-outbreaks %>% 
-  filter(
-    state == "Washington DC" & 
-    primary_mode == "Food"
-    ) %>%
-  arrange(desc(year), desc(month)) %>% 
-  reactable_preview()
-```
-]
-
----
-class: your-turn
-
-# Your Turn 16
-
-Continue to focus only on **Washington DC** and **food borne illnesses**. 
-
-Use tidyverse functions to display the unique values of `food_vehicle` as a vector, as shown below:
-
-```{r echo=FALSE}
-outbreaks %>% 
-  filter(
-    state == "Washington DC",
-    primary_mode == "Food"
-  ) %>%
-  distinct(food_vehicle) %>% 
-  pull()
-```
-
-
----
-## Solution 16
-
-.left-column1[
-```{r sol-16, eval = FALSE}
-outbreaks %>% 
-  filter(
-    state == "Washington DC",
-    primary_mode == "Food"
-  ) %>%
-  distinct(food_vehicle) %>% 
-  pull()
-```
-]
-
-.right-column55[
-```{r ref.label = "sol-16", echo = FALSE}
-
-```
-
-]
-
-
-
-
----
-class: your-turn
-
-# Your Turn 17
-
-Find **food borne** outbreaks that resulted in at least 1 **death**. 
-
-Display the results in a table that contains only the columns `year`, `primary_mode`, `state`, and `deaths`.
-
-```{r echo=FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Food", 
-    deaths >= 1
-  ) %>% 
-  select(year, primary_mode, state, deaths) %>% 
-  reactable_preview()
-```
-
-
----
-
-## Solution
-
-```{r eval = FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Food", 
-    deaths >= 1
-  ) %>% 
-  select(year, primary_mode, state, deaths)
-```
-
-```{r echo = FALSE}
-outbreaks %>% 
-  filter(
-    primary_mode == "Food", 
-    deaths >= 1
-  ) %>% 
-  select(year, primary_mode, state, deaths) %>% 
-  reactable_preview()
-```
-
----
-class: your-turn
-
-# Your Turn 18
-
-Calculate new variable for each outbreak: **`fatality_rate`** (the  number of deaths / the number of illnesses, multiplied by 100). 
-
-Then visualize the distribution of the fatality rate with a histogram.
-
-```{r echo=FALSE, warning=FALSE, message=FALSE, out.width="35%"}
-outbreaks %>% 
-  mutate(
-    fatality_rate = deaths / illnesses * 100
-  ) %>%
-  ggplot(aes(x = fatality_rate)) + 
-  geom_histogram()
-```
-
-
----
-
-## Solution 18
-.pull-left[
-```{r sol-18, fig.show = "hide", message = FALSE}
-outbreaks %>% 
-  mutate(
-    fatality_rate = deaths / illnesses * 100
-  ) %>%
-  ggplot(aes(x = fatality_rate)) + 
-  geom_histogram()
-```
-]
-
-.pull-right[
-
-```{r ref.label = "sol-18", echo = FALSE, warning = FALSE, message = FALSE}
-
-```
-]
-
-
----
-class: your-turn
-
-# Your Turn 19
-
-* Remove outbreaks that have a fatality rate of zero. 
-
-* What is the distribution of the fatality rate for the remaining outbreaks as shown by a histogram?
-
-```{r echo=FALSE, warning=FALSE, message=FALSE, out.width="35%"}
-outbreaks %>% 
-  mutate(
-    fatality_rate = deaths / illnesses * 100
-  ) %>%
-  filter(fatality_rate > 0) %>%
-  ggplot(aes(x = fatality_rate)) + 
-  geom_histogram()
-```
-
-
----
-
-## Solution 19
-
-.pull-left[
-```{r sol-19, fig.show = "hide", warning=FALSE, message = FALSE}
-outbreaks %>% 
-  mutate(
-    fatality_rate = deaths / illnesses * 100
-  ) %>%
-  filter(fatality_rate > 0) %>%
-  ggplot(aes(x = fatality_rate)) + 
-  geom_histogram()
-```
-]
-
-.pull-right[
-```{r ref.label = "sol-19", echo = FALSE, warning = FALSE, message = FALSE}
-```
-]
-
----
-class: your-turn
-
-# Your Turn 20 - last one!
-
-Find Washington DC's worst outbreak as defined by its **`hospitalization_rate`** (the  number of hospitalizations / the number of illnesses, multiplied by 100).
-
-* Subset the data so you display observations that are at least 1.5 times greater than DC's mean hopsitalization rate. 
-
-* Your answer should be a tibble with the highest hospitalization rates shown at the top. 
-
-* Any ties should be broken by outbreaks that happened more recently.
-
-
-
----
-
-## Solution 20
-
-```{r eval = FALSE}
-outbreaks %>% 
-  filter(state == "Washington DC") %>% 
-  mutate(hospitalization_rate = hospitalizations / illnesses * 100) %>%
-  filter(hospitalization_rate >= 1.60 * mean(hospitalization_rate, na.rm = TRUE)) %>% 
-  arrange(desc(hospitalization_rate), desc(year))
-```
-
-
-```{r echo = FALSE}
-outbreaks %>% 
-  filter(state == "Washington DC") %>% 
-  mutate(hospitalization_rate = hospitalizations / illnesses * 100) %>%
-  filter(hospitalization_rate >= 1.50 * mean(hospitalization_rate, na.rm = TRUE)) %>% 
-  arrange(desc(hospitalization_rate), desc(year)) %>% 
-  reactable_preview()
-```
----
-
-# Explore
-
-+ Now, pair-up with at least one other groupmate and do something new with the `outbreaks` data (10 + minutes)
-
-+ Then share with your group.
-
----
-class: blue, middle, center
-
-# .big-text.white[The end `r emo::ji("rocket")`]
-
