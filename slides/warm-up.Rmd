@@ -214,7 +214,7 @@ class: your-turn
 .pull-left[
 ```{r eval = FALSE}
 seattle_pets |> 
-  count(species, sort = TRUE)
+  count(species)
 ```
 
 or...
@@ -229,7 +229,7 @@ seattle_pets |>
 
 .pull-right[
 ```{r echo = FALSE, message = FALSE}
-seattle_pets |> count(species, sort = TRUE)
+seattle_pets |> count(species)
 ```
 ]
 
@@ -240,7 +240,7 @@ class: your-turn
 
 **What is the most popular pet name in this data set?**
 
-`r emo::ji("bulb")` Hint: Look up the help documentation for `slice_max()` from dplyr.
+`r emo::ji("bulb")` Hint: Try using `slice_max()` from dplyr in your solution. Look up the help docs with `?slice_max`.
 
 ---
 
@@ -251,17 +251,24 @@ class: your-turn
 ```{r eval = FALSE}
 seattle_pets |> 
   count(animal_name) |> 
-  slice_max(order_by = n) |> 
-  pull(animal_name)
+  slice_max(order_by = n)
 ```
 
 or...
 
 ```{r eval=FALSE}
 seattle_pets |> 
+  count(animal_name, sort = TRUE) |> 
+  head(1)
+```
+
+
+or...
+
+```{r eval=FALSE}
+seattle_pets |> 
   count(animal_name) |> 
-  filter(n == max(n)) |> 
-  pull(animal_name)
+  filter(n == max(n))
 ```
 
 ]
@@ -271,8 +278,7 @@ seattle_pets |>
 ```{r echo = FALSE, message = FALSE}
 seattle_pets |> 
   count(animal_name) |> 
-  slice_max(order_by = n) |> 
-  pull(animal_name)
+  slice_max(order_by = n)
 ```
 
 ]
@@ -349,9 +355,20 @@ seattle_pets |>
   filter(species == "Dog") |> 
   count(primary_breed) |> 
   slice_max(order_by = n, n = 10) |> 
-  ggplot(aes(primary_breed, n)) + 
+  ggplot(aes(x = primary_breed, y = n)) + 
   geom_col() + 
   coord_flip()
+```
+
+or ...
+
+```{r}
+seattle_pets |> 
+  filter(species == "Dog") |> 
+  count(primary_breed) |> 
+  slice_max(order_by = n, n = 10) |> 
+  ggplot(aes(x = n, y = primary_breed)) + 
+  geom_col()
 ```
 
 ]
@@ -362,7 +379,7 @@ seattle_pets |>
   filter(species == "Dog") |> 
   count(primary_breed) |> 
   slice_max(order_by = n, n = 10) |> 
-  ggplot(aes(primary_breed, n)) + 
+  ggplot(aes(x = primary_breed, y = n)) + 
   geom_col() + 
   coord_flip()
 ```

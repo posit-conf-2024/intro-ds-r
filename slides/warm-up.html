@@ -124,13 +124,13 @@ class: your-turn
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic L…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mi…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019"…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S1…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.",…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115,…
 ```
 
 
@@ -151,13 +151,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic L…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mi…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019"…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S1…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.",…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115,…
 ```
 
 ---
@@ -178,7 +178,7 @@ class: your-turn
 
 ```r
 seattle_pets |&gt; 
-  count(species, sort = TRUE)
+  count(species)
 ```
 
 or...
@@ -198,8 +198,8 @@ seattle_pets |&gt;
 ## # A tibble: 4 × 2
 ##   species     n
 ##   &lt;chr&gt;   &lt;int&gt;
-## 1 Dog     29729
-## 2 Cat     13935
+## 1 Cat     13935
+## 2 Dog     29729
 ## 3 Goat       16
 ## 4 Pig         3
 ```
@@ -212,7 +212,7 @@ class: your-turn
 
 **What is the most popular pet name in this data set?**
 
-💡 Hint: Look up the help documentation for `slice_max()` from dplyr.
+💡 Hint: Try using `slice_max()` from dplyr in your solution. Look up the help docs with `?slice_max`.
 
 ---
 
@@ -224,8 +224,7 @@ class: your-turn
 ```r
 seattle_pets |&gt; 
   count(animal_name) |&gt; 
-  slice_max(order_by = n) |&gt; 
-  pull(animal_name)
+  slice_max(order_by = n)
 ```
 
 or...
@@ -233,9 +232,18 @@ or...
 
 ```r
 seattle_pets |&gt; 
+  count(animal_name, sort = TRUE) |&gt; 
+  head(1)
+```
+
+
+or...
+
+
+```r
+seattle_pets |&gt; 
   count(animal_name) |&gt; 
-  filter(n == max(n)) |&gt; 
-  pull(animal_name)
+  filter(n == max(n))
 ```
 
 ]
@@ -244,7 +252,10 @@ seattle_pets |&gt;
 
 
 ```
-## [1] "Luna"
+## # A tibble: 1 × 2
+##   animal_name     n
+##   &lt;chr&gt;       &lt;int&gt;
+## 1 Luna          410
 ```
 
 ]
@@ -310,7 +321,7 @@ seattle_pets |&gt;
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-14-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-15-1.png" width="80%" /&gt;
 
 ]
 
@@ -326,15 +337,29 @@ seattle_pets |&gt;
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
   slice_max(order_by = n, n = 10) |&gt; 
-  ggplot(aes(primary_breed, n)) + 
+  ggplot(aes(x = primary_breed, y = n)) + 
   geom_col() + 
   coord_flip()
 ```
 
+or ...
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Dog") |&gt; 
+  count(primary_breed) |&gt; 
+  slice_max(order_by = n, n = 10) |&gt; 
+  ggplot(aes(x = n, y = primary_breed)) + 
+  geom_col()
+```
+
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-17-1.png" width="504" /&gt;
+
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-16-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="80%" /&gt;
 
 ]
 
@@ -354,7 +379,7 @@ We would need to handle **factors** (categorical variables).
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-17-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-19-1.png" width="90%" /&gt;
 
 ]
 
@@ -369,7 +394,7 @@ We would need to handle **dates**.
 
 .pull-right[
 
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-20-1.png" width="90%" /&gt;
 
 ]
 
