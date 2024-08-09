@@ -207,7 +207,7 @@ class: middle chapter-slide blue
   1. Click **More**
   1. Click **Export...** (and save a .zip file to your computer)
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width = "50%", fig.align = "center"}
 knitr::include_graphics("images/wrap-up/export-from-campsite.png")
 ```
 
