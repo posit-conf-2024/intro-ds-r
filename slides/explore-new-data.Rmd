@@ -100,7 +100,18 @@ knitr::include_graphics("images/explore-new-data/new-quarto.png")
 ]
 
 ---
-# Objectives (Work in groups of 2 - 3)
+# Work together!
+
+* Form small groups of 2 - 3
+
+* You can each choose a different data set to work with (or work with the same data set)
+
+* Check in with your neighbors when you get stuck (we will come help too)
+
+* You will share your progress with your group later on
+
+---
+# Objectives
 
 * **Import your data** into R (anyone working with files formats other than .csv?)
 
