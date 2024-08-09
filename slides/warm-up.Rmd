@@ -168,7 +168,7 @@ class: your-turn
 
 # Your Turn 1
 
-**Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?**
+**Read in the data saved in `data/seattle_pets.csv` and explore it. Can you recreate output that looks like this?**
 
 `r emo::ji("bulb")` Hint: What function from dplyr gives you a quick glimpse of your data?
 
@@ -362,7 +362,7 @@ seattle_pets |>
 
 or ...
 
-```{r}
+```{r eval=FALSE}
 seattle_pets |> 
   filter(species == "Dog") |> 
   count(primary_breed) |> 

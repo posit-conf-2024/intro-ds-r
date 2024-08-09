@@ -114,7 +114,7 @@ class: your-turn
 
 # Your Turn 1
 
-**Read in the `seattle_pets` data and explore it. Can you recreate output that looks like this?**
+**Read in the data saved in `data/seattle_pets.csv` and explore it. Can you recreate output that looks like this?**
 
 💡 Hint: What function from dplyr gives you a quick glimpse of your data?
 
@@ -124,13 +124,13 @@ class: your-turn
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019"…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S1…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.",…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115,…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 201…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shortha…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, …
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 9811…
 ```
 
 
@@ -151,13 +151,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2019"…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "S1…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.",…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shorthair…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, NA…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98115,…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 201…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shortha…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, …
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 9811…
 ```
 
 ---
@@ -353,8 +353,6 @@ seattle_pets |&gt;
   ggplot(aes(x = n, y = primary_breed)) + 
   geom_col()
 ```
-
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-17-1.png" width="504" /&gt;
 
 ]
 
