@@ -99,15 +99,23 @@ class: inverse, center, middle
 You'll use the sticky system to signal that you're done or your need help
 
 ---
-class: center, middle, inverse
+class: inverse
 background-position: center
 background-size: cover
 
 
 
-# Seattle pets
+# Seattle Pet Licenses data
 
-# 🐶 🐱
+Look for `data/seattle_pets.csv` in your Files pane
+
+Source: https://data.seattle.gov/Community/Seattle-Pet-Licenses/jguv-t9rb/about_data
+
+???
+
+This data was retrieved from Seattle's Open Data Portal. It was last updated in July 2024.
+
+It contains a list of current Seattle pet licenses, including animal type (species), pet's name, breed and the owner's ZIP code.
 
 ---
 class: your-turn
@@ -124,13 +132,13 @@ class: your-turn
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 201…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shortha…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, …
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 9811…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 1…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S13198…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", …
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Sh…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix",…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199,…
 ```
 
 
@@ -151,13 +159,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 201…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986", "…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.C.…
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Shortha…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA, …
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 9811…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 1…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S13198…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", …
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Sh…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix",…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199,…
 ```
 
 ---
@@ -203,7 +211,25 @@ seattle_pets |&gt;
 ## 3 Goat       16
 ## 4 Pig         3
 ```
+
 ]
+
+
+---
+# Solution 2
+
+Because I was curious... what does one name a pet pig? 
+
+
+```r
+seattle_pets |&gt; 
+  filter(species == "Pig") |&gt; 
+  pull(animal_name)
+```
+
+```
+## [1] "Millie"                "Calvin"                "Waffles Olivia McHart"
+```
 
 ---
 class: your-turn
@@ -321,7 +347,7 @@ seattle_pets |&gt;
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-15-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-16-1.png" width="80%" /&gt;
 
 ]
 
@@ -357,7 +383,7 @@ seattle_pets |&gt;
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-18-1.png" width="80%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-19-1.png" width="80%" /&gt;
 
 ]
 
@@ -377,7 +403,7 @@ We would need to handle **factors** (categorical variables).
 ]
 
 .pull-right[
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-19-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-20-1.png" width="90%" /&gt;
 
 ]
 
@@ -385,14 +411,14 @@ We would need to handle **factors** (categorical variables).
 # 🤔 Exploring `seattle_pets` further...
 
 .pull-left[
-What if we wanted visualize trends in number of new pets by month?
+What if we wanted visualize trends in number of new pet licences by month?
 
 We would need to handle **dates**.
 ]
 
 .pull-right[
 
-&lt;img src="warm-up_files/figure-html/unnamed-chunk-20-1.png" width="90%" /&gt;
+&lt;img src="warm-up_files/figure-html/unnamed-chunk-21-1.png" width="90%" /&gt;
 
 ]
 

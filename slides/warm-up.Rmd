@@ -149,7 +149,7 @@ knitr::include_graphics("images/welcome/pink-square.png")
 You'll use the sticky system to signal that you're done or your need help
 
 ---
-class: center, middle, inverse
+class: inverse
 background-position: center
 background-size: cover
 
@@ -159,9 +159,17 @@ library(tidyverse)
 seattle_pets <- read_csv("data/warm-up/seattle_pets.csv")
 ```
 
-# Seattle pets
+# Seattle Pet Licenses data
 
-# `r emo::ji("dog")` `r emo::ji("cat")`
+Look for `data/seattle_pets.csv` in your Files pane
+
+Source: https://data.seattle.gov/Community/Seattle-Pet-Licenses/jguv-t9rb/about_data
+
+???
+
+This data was retrieved from Seattle's Open Data Portal. It was last updated in July 2024.
+
+It contains a list of current Seattle pet licenses, including animal type (species), pet's name, breed and the owner's ZIP code.
 
 ---
 class: your-turn
@@ -231,7 +239,20 @@ seattle_pets |>
 ```{r echo = FALSE, message = FALSE}
 seattle_pets |> count(species)
 ```
+
 ]
+
+
+---
+# Solution 2
+
+Because I was curious... what does one name a pet pig? 
+
+```{r}
+seattle_pets |> 
+  filter(species == "Pig") |> 
+  pull(animal_name)
+```
 
 ---
 class: your-turn
@@ -419,7 +440,7 @@ seattle_pets |>
 # `r emo::ji("thinking_face")` Exploring `seattle_pets` further...
 
 .pull-left[
-What if we wanted visualize trends in number of new pets by month?
+What if we wanted visualize trends in number of new pet licences by month?
 
 We would need to handle **dates**.
 ]
