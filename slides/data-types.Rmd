@@ -395,30 +395,10 @@ class: middle
 # stringr functions
 ]
 
-Locale-sensitive operations
-
-```{r}
-str_to_upper("Introduction to the tidyverse")
-```
-
-???
-
-We can turn convert cases with `str_to_upper()` and turn strings into yells.
-
-These functions are called "locale-sensitive operations" because they can follow capitalization and alphabetization rules in different languages.
-
----
-
-class: middle
-
-.top-fixed[
-# stringr functions
-]
-
 Pattern matching
 
 ```{r eval = FALSE}
-str_view_all("Introduction to the tidyverse", "[aeiou]")
+str_view("Introduction to the tidyverse", "[aeiou]")
 ```
 
 ```{r echo = FALSE}

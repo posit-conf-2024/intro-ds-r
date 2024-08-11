@@ -335,36 +335,11 @@ class: middle
 # stringr functions
 ]
 
-Locale-sensitive operations
-
-
-```r
-str_to_upper("Introduction to the tidyverse")
-```
-
-```
-## [1] "INTRODUCTION TO THE TIDYVERSE"
-```
-
-???
-
-We can turn convert cases with `str_to_upper()` and turn strings into yells.
-
-These functions are called "locale-sensitive operations" because they can follow capitalization and alphabetization rules in different languages.
-
----
-
-class: middle
-
-.top-fixed[
-# stringr functions
-]
-
 Pattern matching
 
 
 ```r
-str_view_all("Introduction to the tidyverse", "[aeiou]")
+str_view("Introduction to the tidyverse", "[aeiou]")
 ```
 
 
@@ -498,7 +473,7 @@ gss_cat %&gt;%
 ```
 ]
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-22-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-21-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -516,13 +491,13 @@ gss_cat %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-24-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-23-1.png" width="90%" /&gt;
 ]
 
 ---
 # What are we trying to show?
 
-![](data-types_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](data-types_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
 
 ---
 # Factors have an ordering
@@ -591,7 +566,7 @@ Use ggplot and one of these forcats functions to recreate the plot of `gss_cat`:
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-29-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-28-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -613,7 +588,7 @@ gss %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-31-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-30-1.png" width="90%" /&gt;
 ]
 
 ---
