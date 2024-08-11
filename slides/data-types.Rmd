@@ -362,10 +362,8 @@ https://forcats.tidyverse.org/
 ]
 
 ???
-Categorical data in R are called "factors"
 
-Each category is called a "level"
-
+"factor" is just another name for categorical data in R
 
 ---
 # General Social Survey data set
@@ -378,6 +376,13 @@ gss_cat
 ```{r echo=FALSE}
 gss_cat %>% print(n = 8)
 ```
+
+???
+
+The General Social Survey is a large-scale survey designed to monitor changes in social characteristics 
+and attitudes over time in the United States. 
+
+The forcats package has a subset of this data built-in, `gss_cat`.
 
 ---
 # EDA - continuous
@@ -399,6 +404,10 @@ gss_cat %>%
   labs(x = "TV Hours")
 ```
 ]
+
+???
+
+To get a sense of the distribution of this data, we can use a histogram.
 
 ---
 # EDA - categorical
@@ -422,6 +431,11 @@ gss_cat %>%
 ```
 ]
 
+???
+
+Now let's look at a categorical variable, marital status. In this case, we can
+use a bar plot to display the number of observations in each category of marital status.
+
 ---
 # What are we trying to show?
 
@@ -432,6 +446,11 @@ gss_cat %>%
   labs(x = "Marital Status")
 ```
 
+???
+
+But it would be more informative to see a plot like this, which shows the categories 
+in descending order of frequency.
+
 ---
 # Factors have an ordering
 
@@ -441,6 +460,11 @@ Factors are stored with an order even if there is no inherent meaning to the ord
 levels(gss_cat$marital)
 ```
 
+???
+
+We call each of the categories of a factor a "level." Here is the default ordering 
+of the levels of marital status. This is the same ordering we saw in our first 
+bar plot.
 
 ---
 # Reorder factor levels
@@ -452,6 +476,11 @@ levels(gss_cat$marital)
 > * `fct_inseq()`: by numeric value of level.
 
 https://forcats.tidyverse.org/reference/fct_inorder.html
+
+???
+
+Forcats provides some helper functions for changing the order of factor levels
+when we need to do so. Here are a few examples (but there are more!)
 
 ---
 
@@ -465,6 +494,13 @@ f
 ```{r}
 fct_inorder(f)
 ```
+
+???
+
+Let's look at a simple character vector that we've converted to a factor. By default the levels are in 
+alphabetical order. But we can use `fct_inorder()` to reorder the levels according to the order in which they first appear in the vector.
+
+Since "b" appears first, that becomes the first level.
 
 ---
 class: your-turn
@@ -516,6 +552,11 @@ gss_cat %>%
 ```
 ]
 
+??? 
+
+`fct_infreq()` displays the bars by order of how frequently each category of martial
+status appears in the data set.
+
 ---
 class: middle chapter-slide tan
 
@@ -547,7 +588,7 @@ background-size: cover
 
 ???
 
-Lubridate is a package that makes it easier to work dates and datetimes. These are two standard formats for storing time-related information. A date is what is sounds like - the information for a date, so the year, month, and day. 
+Lubridate is a package that makes it easier to work dates and datetimes. These are two standard formats for storing time-related information. A date is what is sounds like - the year, month, and day. 
 
 A datetime stores all of that as well as hours, minutes, seconds, and time zone.
 
@@ -562,9 +603,7 @@ background-size: cover
 ???
 When working with time-related information, often the first step is to get your data into a date or datetime format. 
 
-When reading your data into R, it may be expressed in a variety of ways. The lubridate functions are built to make this transformation as intuitive and flexible as possible. 
-
-You may be trying to read in time-related information that uses dashes to separate values. Or maybe spaces, periods, or no spacing at all. 
+For example, you may be trying to read in time-related information that uses dashes to separate values. Or maybe spaces, periods, or no spacing at all. 
 
 
 Lubridate functions will handle all of these formats automatically. A function called `ymd` for year/month/day can read all of these different formats and will output the Date object shown on the right. 
@@ -586,7 +625,7 @@ background-size: cover
 # Extract Information
 
 ???
-Once we have our data in a date or datetime format, we are able to easily access all of the components used to build the object, such as the year, month, day, etc. 
+Once we have our data in a date or datetime format, we are able to easily access all of its components -- such as the year, month, day, hour, minute, etc. 
 
 ---
 
@@ -607,19 +646,6 @@ class: top
 
 - work with time intervals
 
-???
-Some additional tasks that can be completed using lubridate functions are to:
-
-do math with dates and datetimes, meaning we can add and subtract time-related information
-
-convert between different time zones
-
-account for leap time
-
-round times, for example rounding dates to the nearest week or month
-
-work with intervals of time
-
 ---
 # Bike Traffic data set
 
@@ -633,7 +659,8 @@ print(bike_traffic, n = 8)
 
 
 ???
-Here is a dataset containing bicycle traffic counts that we just loaded into R. The date column is stored as a factor with hours listed in AM and PM and is not currently in the standardized datetime format. 
+
+Let's look at an example using bike traffic data. The date column is stored as a factor with hours listed in AM and PM and is not currently in the standardized datetime format. 
 
 In the current form, we cannot take advantage of the many time-related tools that exist for dates and datetimes. 
 ---
@@ -661,7 +688,9 @@ print(bike_traffic, n = 5)
 
 So, we will use a lubridate function to turn this column into a datetime.
 
-Because our data was in the order Month-Day-Year-Hour-Minute-Second, we used the MDY_HMS function to turn the column of values into datetimes. 
+Because our data was in the order Month-Day-Year-Hour-Minute-Second, we used the MDY_HMS function to turn the column of values into datetimes.
+
+Now that we have this stored as a date time object, we can start to explore temporal patterns in this data.
 
 ---
 class: your-turn
@@ -670,10 +699,11 @@ class: your-turn
 
 What day of the week was the moon landing (July 20, 1969)?
 
+`r emo::ji("bulb")` Hint: The `wday()` function returns the day of the week
+
 ```{r, eval = FALSE}
 ymd(____) %>%
   ____(label = TRUE)
-
 ```
 
 ---
@@ -705,3 +735,15 @@ knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/PNG/l
 ```
 
 ]
+
+???
+
+This really just scratches the surface of the tools available within these packages
+for working with data types. Think about what types of data you most commonly 
+work with -- which of these packages would you like to explore further? 
+
+There are some optional tutorials in your campsite if you'd like to do a deeper 
+dive in to any of these topics.
+
+Cheatsheets are especially helpful when working with these packages. 
+

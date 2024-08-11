@@ -111,16 +111,18 @@ breed_traits
 
 ```
 ## # A tibble: 195 × 15
-##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Retrievers (Lab…         5        4        2        5           5              3            5            5      5       3
-## 2 French Bulldogs          5        3        3        5           5              3            5            4      3       1
-## 3 German Shepherd…         5        4        2        3           4              5            5            5      5       3
-## 4 Retrievers (Gol…         5        4        2        5           4              3            5            5      3       1
-## 5 Bulldogs                 4        3        3        4           4              3            3            4      3       2
-## 6 Poodles                  5        1        1        5           5              5            4            5      4       4
+##   breed          affection shedding drooling openness playfulness protectiveness
+##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Retrievers (L…         5        4        2        5           5              3
+## 2 French Bulldo…         5        3        3        5           5              3
+## 3 German Shephe…         5        4        2        3           4              5
+## 4 Retrievers (G…         5        4        2        5           4              3
+## 5 Bulldogs               4        3        3        4           4              3
+## 6 Poodles                5        1        1        5           5              5
 ## # ℹ 189 more rows
-## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
+## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
+## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 
@@ -168,10 +170,12 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 1 × 15
-##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Yorkshire Terri…         5        1        1        5           4              5            5            4      4       4
-## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed          affection shedding drooling openness playfulness protectiveness
+##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Yorkshire Ter…         5        1        1        5           4              5
+## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
+## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
+## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -198,11 +202,13 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 2 × 15
-##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Yorkshire Terri…         5        1        1        5           4              5            5            4      4       4
-## 2 Boston Terriers          5        2        1        5           5              3            3            4      4       2
-## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed          affection shedding drooling openness playfulness protectiveness
+##   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+## 1 Yorkshire Ter…         5        1        1        5           4              5
+## 2 Boston Terrie…         5        2        1        5           5              3
+## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
+## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
+## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -242,20 +248,22 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 36 × 15
-##    breed           affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##    &lt;chr&gt;               &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Yorkshire Terr…         5        1        1        5           4              5            5            4      4       4
-##  2 Boston Terriers         5        2        1        5           5              3            3            4      4       2
-##  3 West Highland …         5        3        1        4           5              5            4            3      4       5
-##  4 Scottish Terri…         5        2        2        3           4              5            4            3      3       4
-##  5 Soft Coated Wh…         5        1        2        3           3              3            3            3      4       3
-##  6 Airedale Terri…         3        1        1        3           3              5            3            3      3       3
-##  7 Bull Terriers           4        3        1        4           4              3            3            3      4       3
-##  8 Russell Terrie…         5        3        1        5           5              4            4            3      5       4
-##  9 Cairn Terriers          4        2        1        3           4              4            3            3      3       4
-## 10 Staffordshire …         5        2        3        4           4              5            5            5      4       3
+##    breed         affection shedding drooling openness playfulness protectiveness
+##    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Yorkshire Te…         5        1        1        5           4              5
+##  2 Boston Terri…         5        2        1        5           5              3
+##  3 West Highlan…         5        3        1        4           5              5
+##  4 Scottish Ter…         5        2        2        3           4              5
+##  5 Soft Coated …         5        1        2        3           3              3
+##  6 Airedale Ter…         3        1        1        3           3              5
+##  7 Bull Terriers         4        3        1        4           4              3
+##  8 Russell Terr…         5        3        1        5           5              4
+##  9 Cairn Terrie…         4        2        1        3           4              4
+## 10 Staffordshir…         5        2        3        4           4              5
 ## # ℹ 26 more rows
-## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 8 more variables: adaptability &lt;dbl&gt;, trainability &lt;dbl&gt;, energy &lt;dbl&gt;,
+## #   barking &lt;dbl&gt;, stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;,
+## #   good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -329,22 +337,33 @@ fruit
 ```
 
 ```
-##  [1] "apple"             "apricot"           "avocado"           "banana"            "bell pepper"      
-##  [6] "bilberry"          "blackberry"        "blackcurrant"      "blood orange"      "blueberry"        
-## [11] "boysenberry"       "breadfruit"        "canary melon"      "cantaloupe"        "cherimoya"        
-## [16] "cherry"            "chili pepper"      "clementine"        "cloudberry"        "coconut"          
-## [21] "cranberry"         "cucumber"          "currant"           "damson"            "date"             
-## [26] "dragonfruit"       "durian"            "eggplant"          "elderberry"        "feijoa"           
-## [31] "fig"               "goji berry"        "gooseberry"        "grape"             "grapefruit"       
-## [36] "guava"             "honeydew"          "huckleberry"       "jackfruit"         "jambul"           
-## [41] "jujube"            "kiwi fruit"        "kumquat"           "lemon"             "lime"             
-## [46] "loquat"            "lychee"            "mandarine"         "mango"             "mulberry"         
-## [51] "nectarine"         "nut"               "olive"             "orange"            "pamelo"           
-## [56] "papaya"            "passionfruit"      "peach"             "pear"              "persimmon"        
-## [61] "physalis"          "pineapple"         "plum"              "pomegranate"       "pomelo"           
-## [66] "purple mangosteen" "quince"            "raisin"            "rambutan"          "raspberry"        
-## [71] "redcurrant"        "rock melon"        "salal berry"       "satsuma"           "star fruit"       
-## [76] "strawberry"        "tamarillo"         "tangerine"         "ugli fruit"        "watermelon"
+##  [1] "apple"             "apricot"           "avocado"          
+##  [4] "banana"            "bell pepper"       "bilberry"         
+##  [7] "blackberry"        "blackcurrant"      "blood orange"     
+## [10] "blueberry"         "boysenberry"       "breadfruit"       
+## [13] "canary melon"      "cantaloupe"        "cherimoya"        
+## [16] "cherry"            "chili pepper"      "clementine"       
+## [19] "cloudberry"        "coconut"           "cranberry"        
+## [22] "cucumber"          "currant"           "damson"           
+## [25] "date"              "dragonfruit"       "durian"           
+## [28] "eggplant"          "elderberry"        "feijoa"           
+## [31] "fig"               "goji berry"        "gooseberry"       
+## [34] "grape"             "grapefruit"        "guava"            
+## [37] "honeydew"          "huckleberry"       "jackfruit"        
+## [40] "jambul"            "jujube"            "kiwi fruit"       
+## [43] "kumquat"           "lemon"             "lime"             
+## [46] "loquat"            "lychee"            "mandarine"        
+## [49] "mango"             "mulberry"          "nectarine"        
+## [52] "nut"               "olive"             "orange"           
+## [55] "pamelo"            "papaya"            "passionfruit"     
+## [58] "peach"             "pear"              "persimmon"        
+## [61] "physalis"          "pineapple"         "plum"             
+## [64] "pomegranate"       "pomelo"            "purple mangosteen"
+## [67] "quince"            "raisin"            "rambutan"         
+## [70] "raspberry"         "redcurrant"        "rock melon"       
+## [73] "salal berry"       "satsuma"           "star fruit"       
+## [76] "strawberry"        "tamarillo"         "tangerine"        
+## [79] "ugli fruit"        "watermelon"
 ```
 
 ???
@@ -368,9 +387,10 @@ str_subset(fruit, " ")
 ```
 
 ```
-##  [1] "bell pepper"       "blood orange"      "canary melon"      "chili pepper"      "goji berry"       
-##  [6] "kiwi fruit"        "purple mangosteen" "rock melon"        "salal berry"       "star fruit"       
-## [11] "ugli fruit"
+##  [1] "bell pepper"       "blood orange"      "canary melon"     
+##  [4] "chili pepper"      "goji berry"        "kiwi fruit"       
+##  [7] "purple mangosteen" "rock melon"        "salal berry"      
+## [10] "star fruit"        "ugli fruit"
 ```
 
 ---
@@ -390,10 +410,8 @@ https://forcats.tidyverse.org/
 ]
 
 ???
-Categorical data in R are called "factors"
 
-Each category is called a "level"
-
+"factor" is just another name for categorical data in R
 
 ---
 # General Social Survey data set
@@ -407,18 +425,25 @@ gss_cat
 
 ```
 ## # A tibble: 21,483 × 9
-##    year marital         age race  rincome        partyid            relig              denom             tvhours
-##   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;              &lt;fct&gt;              &lt;fct&gt;               &lt;int&gt;
-## 1  2000 Never married    26 White $8000 to 9999  Ind,near rep       Protestant         Southern baptist       12
-## 2  2000 Divorced         48 White $8000 to 9999  Not str republican Protestant         Baptist-dk which       NA
-## 3  2000 Widowed          67 White Not applicable Independent        Protestant         No denomination         2
-## 4  2000 Never married    39 White Not applicable Ind,near rep       Orthodox-christian Not applicable          4
-## 5  2000 Divorced         25 White Not applicable Not str democrat   None               Not applicable          1
-## 6  2000 Married          25 White $20000 - 24999 Strong democrat    Protestant         Southern baptist       NA
-## 7  2000 Never married    36 White $25000 or more Not str republican Christian          Not applicable          3
-## 8  2000 Divorced         44 White $7000 to 7999  Ind,near dem       Protestant         Lutheran-mo synod      NA
+##    year marital         age race  rincome        partyid     relig denom tvhours
+##   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;       &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;
+## 1  2000 Never married    26 White $8000 to 9999  Ind,near r… Prot… Sout…      12
+## 2  2000 Divorced         48 White $8000 to 9999  Not str re… Prot… Bapt…      NA
+## 3  2000 Widowed          67 White Not applicable Independent Prot… No d…       2
+## 4  2000 Never married    39 White Not applicable Ind,near r… Orth… Not …       4
+## 5  2000 Divorced         25 White Not applicable Not str de… None  Not …       1
+## 6  2000 Married          25 White $20000 - 24999 Strong dem… Prot… Sout…      NA
+## 7  2000 Never married    36 White $25000 or more Not str re… Chri… Not …       3
+## 8  2000 Divorced         44 White $7000 to 7999  Ind,near d… Prot… Luth…      NA
 ## # ℹ 21,475 more rows
 ```
+
+???
+
+The General Social Survey is a large-scale survey designed to monitor changes in social characteristics 
+and attitudes over time in the United States. 
+
+The forcats package has a subset of this data built-in, `gss_cat`.
 
 ---
 # EDA - continuous
@@ -436,6 +461,10 @@ gss_cat %&gt;%
 .pull-right[
 &lt;img src="data-types_files/figure-html/unnamed-chunk-16-1.png" width="90%" /&gt;
 ]
+
+???
+
+To get a sense of the distribution of this data, we can use a histogram.
 
 ---
 # EDA - categorical
@@ -455,10 +484,20 @@ gss_cat %&gt;%
 &lt;img src="data-types_files/figure-html/unnamed-chunk-18-1.png" width="90%" /&gt;
 ]
 
+???
+
+Now let's look at a categorical variable, marital status. In this case, we can
+use a bar plot to display the number of observations in each category of marital status.
+
 ---
 # What are we trying to show?
 
 ![](data-types_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+
+???
+
+But it would be more informative to see a plot like this, which shows the categories 
+in descending order of frequency.
 
 ---
 # Factors have an ordering
@@ -471,9 +510,15 @@ levels(gss_cat$marital)
 ```
 
 ```
-## [1] "No answer"     "Never married" "Separated"     "Divorced"      "Widowed"       "Married"
+## [1] "No answer"     "Never married" "Separated"     "Divorced"     
+## [5] "Widowed"       "Married"
 ```
 
+???
+
+We call each of the categories of a factor a "level." Here is the default ordering 
+of the levels of marital status. This is the same ordering we saw in our first 
+bar plot.
 
 ---
 # Reorder factor levels
@@ -485,6 +530,11 @@ levels(gss_cat$marital)
 &gt; * `fct_inseq()`: by numeric value of level.
 
 https://forcats.tidyverse.org/reference/fct_inorder.html
+
+???
+
+Forcats provides some helper functions for changing the order of factor levels
+when we need to do so. Here are a few examples (but there are more!)
 
 ---
 
@@ -510,6 +560,13 @@ fct_inorder(f)
 ## [1] b b a c c c
 ## Levels: b a c
 ```
+
+???
+
+Let's look at a simple character vector that we've converted to a factor. By default the levels are in 
+alphabetical order. But we can use `fct_inorder()` to reorder the levels according to the order in which they first appear in the vector.
+
+Since "b" appears first, that becomes the first level.
 
 ---
 class: your-turn
@@ -552,6 +609,11 @@ gss %&gt;%
 &lt;img src="data-types_files/figure-html/unnamed-chunk-25-1.png" width="90%" /&gt;
 ]
 
+??? 
+
+`fct_infreq()` displays the bars by order of how frequently each category of martial
+status appears in the data set.
+
 ---
 class: middle chapter-slide tan
 
@@ -581,7 +643,7 @@ background-size: cover
 
 ???
 
-Lubridate is a package that makes it easier to work dates and datetimes. These are two standard formats for storing time-related information. A date is what is sounds like - the information for a date, so the year, month, and day. 
+Lubridate is a package that makes it easier to work dates and datetimes. These are two standard formats for storing time-related information. A date is what is sounds like - the year, month, and day. 
 
 A datetime stores all of that as well as hours, minutes, seconds, and time zone.
 
@@ -596,9 +658,7 @@ background-size: cover
 ???
 When working with time-related information, often the first step is to get your data into a date or datetime format. 
 
-When reading your data into R, it may be expressed in a variety of ways. The lubridate functions are built to make this transformation as intuitive and flexible as possible. 
-
-You may be trying to read in time-related information that uses dashes to separate values. Or maybe spaces, periods, or no spacing at all. 
+For example, you may be trying to read in time-related information that uses dashes to separate values. Or maybe spaces, periods, or no spacing at all. 
 
 
 Lubridate functions will handle all of these formats automatically. A function called `ymd` for year/month/day can read all of these different formats and will output the Date object shown on the right. 
@@ -620,7 +680,7 @@ background-size: cover
 # Extract Information
 
 ???
-Once we have our data in a date or datetime format, we are able to easily access all of the components used to build the object, such as the year, month, day, etc. 
+Once we have our data in a date or datetime format, we are able to easily access all of its components -- such as the year, month, day, hour, minute, etc. 
 
 ---
 
@@ -640,19 +700,6 @@ class: top
 - convert between time zones
 
 - work with time intervals
-
-???
-Some additional tasks that can be completed using lubridate functions are to:
-
-do math with dates and datetimes, meaning we can add and subtract time-related information
-
-convert between different time zones
-
-account for leap time
-
-round times, for example rounding dates to the nearest week or month
-
-work with intervals of time
 
 ---
 # Bike Traffic data set
@@ -680,7 +727,8 @@ bike_traffic
 
 
 ???
-Here is a dataset containing bicycle traffic counts that we just loaded into R. The date column is stored as a factor with hours listed in AM and PM and is not currently in the standardized datetime format. 
+
+Let's look at an example using bike traffic data. The date column is stored as a factor with hours listed in AM and PM and is not currently in the standardized datetime format. 
 
 In the current form, we cannot take advantage of the many time-related tools that exist for dates and datetimes. 
 ---
@@ -700,13 +748,13 @@ bike_traffic %&gt;%
 
 ```
 ## # A tibble: 85,810 × 6
-##   timestamp           date                   crossing           direction bike_count ped_count
-##   &lt;dttm&gt;              &lt;fct&gt;                  &lt;fct&gt;              &lt;fct&gt;          &lt;int&gt;     &lt;int&gt;
-## 1 2019-02-28 23:00:00 02/28/2019 11:00:00 PM Burke Gilman Trail North              0         0
-## 2 2019-02-28 22:00:00 02/28/2019 10:00:00 PM Burke Gilman Trail North              0         0
-## 3 2019-02-28 21:00:00 02/28/2019 09:00:00 PM Burke Gilman Trail North              2         0
-## 4 2019-02-28 20:00:00 02/28/2019 08:00:00 PM Burke Gilman Trail North              2         1
-## 5 2019-02-28 19:00:00 02/28/2019 07:00:00 PM Burke Gilman Trail North              6         0
+##   timestamp           date               crossing direction bike_count ped_count
+##   &lt;dttm&gt;              &lt;fct&gt;              &lt;fct&gt;    &lt;fct&gt;          &lt;int&gt;     &lt;int&gt;
+## 1 2019-02-28 23:00:00 02/28/2019 11:00:… Burke G… North              0         0
+## 2 2019-02-28 22:00:00 02/28/2019 10:00:… Burke G… North              0         0
+## 3 2019-02-28 21:00:00 02/28/2019 09:00:… Burke G… North              2         0
+## 4 2019-02-28 20:00:00 02/28/2019 08:00:… Burke G… North              2         1
+## 5 2019-02-28 19:00:00 02/28/2019 07:00:… Burke G… North              6         0
 ## # ℹ 85,805 more rows
 ```
 
@@ -714,7 +762,9 @@ bike_traffic %&gt;%
 
 So, we will use a lubridate function to turn this column into a datetime.
 
-Because our data was in the order Month-Day-Year-Hour-Minute-Second, we used the MDY_HMS function to turn the column of values into datetimes. 
+Because our data was in the order Month-Day-Year-Hour-Minute-Second, we used the MDY_HMS function to turn the column of values into datetimes.
+
+Now that we have this stored as a date time object, we can start to explore temporal patterns in this data.
 
 ---
 class: your-turn
@@ -722,6 +772,8 @@ class: your-turn
 # Your Turn 3
 
 What day of the week was the moon landing (July 20, 1969)?
+
+💡 Hint: The `wday()` function returns the day of the week
 
 
 ```r
@@ -757,6 +809,18 @@ class: center
 &lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/stringr.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/forcats.png?raw=true" width="25%" /&gt;&lt;img src="https://github.com/rstudio/hex-stickers/blob/main/PNG/lubridate.png?raw=true" width="25%" /&gt;
 
 ]
+
+???
+
+This really just scratches the surface of the tools available within these packages
+for working with data types. Think about what types of data you most commonly 
+work with -- which of these packages would you like to explore further? 
+
+There are some optional tutorials in your campsite if you'd like to do a deeper 
+dive in to any of these topics.
+
+Cheatsheets are especially helpful when working with these packages. 
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
