@@ -111,14 +111,14 @@ breed_traits
 
 ```
 ## # A tibble: 195 × 15
-##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Retriev…         5        4        2        5           5              3            5            5      5       3
-## 2 French …         5        3        3        5           5              3            5            4      3       1
-## 3 German …         5        4        2        3           4              5            5            5      5       3
-## 4 Retriev…         5        4        2        5           4              3            5            5      3       1
-## 5 Bulldogs         4        3        3        4           4              3            3            4      3       2
-## 6 Poodles          5        1        1        5           5              5            4            5      4       4
+##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Retrievers (Lab…         5        4        2        5           5              3            5            5      5       3
+## 2 French Bulldogs          5        3        3        5           5              3            5            4      3       1
+## 3 German Shepherd…         5        4        2        3           4              5            5            5      5       3
+## 4 Retrievers (Gol…         5        4        2        5           4              3            5            5      3       1
+## 5 Bulldogs                 4        3        3        4           4              3            3            4      3       2
+## 6 Poodles                  5        1        1        5           5              5            4            5      4       4
 ## # ℹ 189 more rows
 ## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
@@ -168,9 +168,9 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 1 × 15
-##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Yorkshi…         5        1        1        5           4              5            5            4      4       4
+##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Yorkshire Terri…         5        1        1        5           4              5            5            4      4       4
 ## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
@@ -198,10 +198,10 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 2 × 15
-##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Yorkshi…         5        1        1        5           4              5            5            4      4       4
-## 2 Boston …         5        2        1        5           5              3            3            4      4       2
+##   breed            affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Yorkshire Terri…         5        1        1        5           4              5            5            4      4       4
+## 2 Boston Terriers          5        2        1        5           5              3            3            4      4       2
 ## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
@@ -213,33 +213,16 @@ This time, we'll use the `%in%` operator to match a vector of strings, and get t
 
 You can where this is going...
 
----
-
-class: middle
-
-# Sniffing out terrier breeds
-
-
-
-
-
-
-
-???
-
 If you think about extending this process to all 200 or so rows, you'll realize that filtering with explicit strings isn't really a scalable solution. Even in this relatively small and tidy dataset, we can see that it becomes tedious and error-prone very quickly.
 
 ---
-
 class: middle
 
-# Sniffing out terrier breeds
-
-
+# Sniffing out terrier breeds ... with pattern matching!
 
 ???
 
-And you'd be right to intuit that there's a simpler way. All we, the humans, are doing is looking for the sequence "Terrier" in the `breed` column. This is exactly the kind of simple but highly repetitive task that's well-suited to outsource to our computers.
+And you'd be right to intuit that there's a simpler way. All we, the humans, are doing is looking for the pattern "Terrier" in the `breed` column. This is exactly the kind of simple but highly repetitive task that's well-suited to outsource to our computers.
 
 That's where stringr comes in.
 
@@ -252,25 +235,25 @@ class: middle
 
 ```r
 breed_traits %&gt;% 
-  filter(str_detect(breed, "Terrier"))
+  filter(str_detect(breed, pattern = "Terrier"))
 ```
 
 
 
 ```
 ## # A tibble: 36 × 15
-##    breed   affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
-##    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Yorksh…         5        1        1        5           4              5            5            4      4       4
-##  2 Boston…         5        2        1        5           5              3            3            4      4       2
-##  3 West H…         5        3        1        4           5              5            4            3      4       5
-##  4 Scotti…         5        2        2        3           4              5            4            3      3       4
-##  5 Soft C…         5        1        2        3           3              3            3            3      4       3
-##  6 Aireda…         3        1        1        3           3              5            3            3      3       3
-##  7 Bull T…         4        3        1        4           4              3            3            3      4       3
-##  8 Russel…         5        3        1        5           5              4            4            3      5       4
-##  9 Cairn …         4        2        1        3           4              4            3            3      3       4
-## 10 Staffo…         5        2        3        4           4              5            5            5      4       3
+##    breed           affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##    &lt;chr&gt;               &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Yorkshire Terr…         5        1        1        5           4              5            5            4      4       4
+##  2 Boston Terriers         5        2        1        5           5              3            3            4      4       2
+##  3 West Highland …         5        3        1        4           5              5            4            3      4       5
+##  4 Scottish Terri…         5        2        2        3           4              5            4            3      3       4
+##  5 Soft Coated Wh…         5        1        2        3           3              3            3            3      4       3
+##  6 Airedale Terri…         3        1        1        3           3              5            3            3      3       3
+##  7 Bull Terriers           4        3        1        4           4              3            3            3      4       3
+##  8 Russell Terrie…         5        3        1        5           5              4            4            3      5       4
+##  9 Cairn Terriers          4        2        1        3           4              4            3            3      3       4
+## 10 Staffordshire …         5        2        3        4           4              5            5            5      4       3
 ## # ℹ 26 more rows
 ## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
@@ -302,7 +285,9 @@ str_sub("Introduction to the tidyverse", 21, 24)
 
 ???
 
-We can extract (and replace) substrings from a vector using `str_sub()`, in this case by extracting the 21st through 24th characters which form the word "tidy".
+In addition to pattern matching, you can use stringr to manipulate strings in a variety of ways. I'll show just a couple examples. 
+
+We can extract substrings from a vector using `str_sub()`, in this case by extracting the 21st through 24th characters which form the word "tidy".
 
 ---
 
@@ -325,38 +310,16 @@ str_trim("   Introduction to the tidyverse          ")
 
 ???
 
-We can trim whitespace from a string using `str_trim()`, which can be a quick and easy data cleaning step.
+We can trim whitespace from a string using `str_trim()`, which can be a quick and easy data cleaning step. 
 
----
-
-class: middle
-
-.top-fixed[
-# stringr functions
-]
-
-Pattern matching
-
-
-```r
-str_view("Introduction to the tidyverse", "[aeiou]")
-```
-
-
-&lt;code class ='r hljs remark-code'&gt;Intr&lt;span style="background-color:#e2d8d2"&gt;o&lt;/span&gt;d&lt;span style="background-color:#e2d8d2"&gt;u&lt;/span&gt;ct&lt;span style="background-color:#e2d8d2"&gt;i&lt;/span&gt;&lt;span style="background-color:#e2d8d2"&gt;o&lt;/span&gt;n t&lt;span style="background-color:#e2d8d2"&gt;o&lt;/span&gt; th&lt;span style="background-color:#e2d8d2"&gt;e&lt;/span&gt; t&lt;span style="background-color:#e2d8d2"&gt;i&lt;/span&gt;dyv&lt;span style="background-color:#e2d8d2"&gt;e&lt;/span&gt;rs&lt;span style="background-color:#e2d8d2"&gt;e&lt;/span&gt;&lt;/code&gt;
-
-???
-
-And we can visualize how patterns match to our data with `str_view()` (and `str_view_all()`). In this case, I'm looking to highlight the vowels in my input string, but the patterns you search for can be very flexible and powerful.
-
-You may have noticed an elegant detail: *all* stringr functions start with the prefix "str_". This is especially nice when you're working in RStudio because typing that prefix out will trigger autocomplete and allow you to see all of the functions.
+These are just a couple examples of the many ways you can use stringr to manipulate strings.
 
 ---
 class: your-turn
 
 # Your Turn 1
 
-Use the `str_subset()` function to subset the elements of the `fruit` vector that are made up of two or more words.
+Use  `str_subset()` to subset the elements of the `fruit` vector that are made up of two or more words.
 
 
 ```r
@@ -398,8 +361,6 @@ Solution: `str_subset(fruit, " ")`
 class: your-turn
 
 # Your Turn 1 Solution
-
-Use a stringr function to subset the elements of the `fruit` vector that are made up of two or more words.
 
 
 ```r
@@ -473,7 +434,7 @@ gss_cat %&gt;%
 ```
 ]
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-21-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-16-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -491,13 +452,13 @@ gss_cat %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-23-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-18-1.png" width="90%" /&gt;
 ]
 
 ---
 # What are we trying to show?
 
-![](data-types_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](data-types_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ---
 # Factors have an ordering
@@ -566,7 +527,7 @@ Use ggplot and one of these forcats functions to recreate the plot of `gss_cat`:
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-28-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-23-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -588,7 +549,7 @@ gss %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-30-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-25-1.png" width="90%" /&gt;
 ]
 
 ---

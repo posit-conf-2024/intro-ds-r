@@ -237,94 +237,16 @@ This time, we'll use the `%in%` operator to match a vector of strings, and get t
 
 You can where this is going...
 
----
-
-class: middle
-
-# Sniffing out terrier breeds
-
-```{r include = FALSE}
-breed_traits %>% 
-  filter(breed %in% c(
-    "Yorkshire Terriers",
-    "Boston Terriers",
-    "West Highland White Terriers",
-    "Scottish Terriers",
-    "Fox Terriers (Wire)",
-    "Soft Coated Wheaten Terriers",
-    "Airedale Terriers",
-    "Bull Terriers",
-    "Russell Terriers",
-    "Cairn Terriers",
-    "Staffordshire Bull Terriers",
-    "American Staffordshire Terriers",
-    "Rat Terriers",
-    "Border Terriers",
-    "Tibetan Terriers",
-    "Miniature Bull Terriers",
-    "Silky Terriers",
-    "Norwich Terriers",
-    "Welsh Terriers",
-    "Toy Fox Terriers",
-    "Parson Russell Terriers",
-    "Irish Terriers",
-    "Fox Terriers (Smooth)",
-    "Black Russian Terriers",
-    "American Hairless Terriers",
-    "Norfolk Terriers",
-    "Manchester Terriers",
-    "Kerry Blue Terriers",
-    "Australian Terriers",
-    "Lakeland Terriers",
-    "Bedlington Terriers",
-    "Sealyham Terriers",
-    "Glen of Imaal Terriers",
-    "Dandie Dinmont Terriers",
-    "Skye Terriers",
-    "Cesky Terriers"
-  )
-)
-```
-
-```{r big-filter-display, include = FALSE, eval = FALSE}
-breed_traits %>% 
-  filter(breed %in% c(
-    "Yorkshire Terriers",
-    "Boston Terriers",
-    "West Highland White Terriers",
-    "Scottish Terriers",
-    "Fox Terriers (Wire)",
-    ...
-  )
-)
-```
-
-```{r echo = FALSE}
-decorate_chunk("big-filter-display", eval = FALSE) %>% 
-  flair_rx("(?<=%)in(?=%)", bold = TRUE) %>% 
-  flair_rx('"([:alpha:]|[:space:]|\\(|\\))*"', color = "#dd1144")
-```
-
-???
-
 If you think about extending this process to all `r round(nrow(breed_traits), digits = -2)` or so rows, you'll realize that filtering with explicit strings isn't really a scalable solution. Even in this relatively small and tidy dataset, we can see that it becomes tedious and error-prone very quickly.
 
 ---
-
 class: middle
 
-# Sniffing out terrier breeds
-
-```{r echo = FALSE}
-decorate_chunk("big-filter-display", eval = FALSE) %>%
-  flair_rx("(?<=%)in(?=%)", bold = TRUE) %>% 
-  flair_rx('"([:alpha:]|[:space:]|\\(|\\))*"', color = "#dd1144") %>% 
-  flair("Terrier", background = "#e2d8d2")
-```
+# Sniffing out terrier breeds ... with pattern matching!
 
 ???
 
-And you'd be right to intuit that there's a simpler way. All we, the humans, are doing is looking for the sequence "Terrier" in the `breed` column. This is exactly the kind of simple but highly repetitive task that's well-suited to outsource to our computers.
+And you'd be right to intuit that there's a simpler way. All we, the humans, are doing is looking for the pattern "Terrier" in the `breed` column. This is exactly the kind of simple but highly repetitive task that's well-suited to outsource to our computers.
 
 That's where stringr comes in.
 
@@ -336,13 +258,13 @@ class: middle
 
 ```{r eval=FALSE}
 breed_traits %>% 
-  filter(str_detect(breed, "Terrier"))
+  filter(str_detect(breed, pattern = "Terrier"))
 ```
 
 
 ```{r echo=FALSE}
 breed_traits %>% 
-  filter(str_detect(breed, "Terrier"))
+  filter(str_detect(breed, pattern = "Terrier"))
 ```
 
 ???
@@ -367,7 +289,9 @@ str_sub("Introduction to the tidyverse", 21, 24)
 
 ???
 
-We can extract (and replace) substrings from a vector using `str_sub()`, in this case by extracting the 21st through 24th characters which form the word "tidy".
+In addition to pattern matching, you can use stringr to manipulate strings in a variety of ways. I'll show just a couple examples. 
+
+We can extract substrings from a vector using `str_sub()`, in this case by extracting the 21st through 24th characters which form the word "tidy".
 
 ---
 
@@ -385,39 +309,16 @@ str_trim("   Introduction to the tidyverse          ")
 
 ???
 
-We can trim whitespace from a string using `str_trim()`, which can be a quick and easy data cleaning step.
+We can trim whitespace from a string using `str_trim()`, which can be a quick and easy data cleaning step. 
 
----
-
-class: middle
-
-.top-fixed[
-# stringr functions
-]
-
-Pattern matching
-
-```{r eval = FALSE}
-str_view("Introduction to the tidyverse", "[aeiou]")
-```
-
-```{r echo = FALSE}
-decorate_code("Introduction to the tidyverse", eval = FALSE) %>%
-  flair_rx("[aeiou]", background = "#e2d8d2")
-```
-
-???
-
-And we can visualize how patterns match to our data with `str_view()` (and `str_view_all()`). In this case, I'm looking to highlight the vowels in my input string, but the patterns you search for can be very flexible and powerful.
-
-You may have noticed an elegant detail: *all* stringr functions start with the prefix "str_". This is especially nice when you're working in RStudio because typing that prefix out will trigger autocomplete and allow you to see all of the functions.
+These are just a couple examples of the many ways you can use stringr to manipulate strings.
 
 ---
 class: your-turn
 
 # Your Turn 1
 
-Use the `str_subset()` function to subset the elements of the `fruit` vector that are made up of two or more words.
+Use  `str_subset()` to subset the elements of the `fruit` vector that are made up of two or more words.
 
 ```{r}
 # preview `fruit`, which is loaded along with stringr
@@ -439,8 +340,6 @@ Solution: `str_subset(fruit, " ")`
 class: your-turn
 
 # Your Turn 1 Solution
-
-Use a stringr function to subset the elements of the `fruit` vector that are made up of two or more words.
 
 ```{r}
 str_subset(fruit, " ")
