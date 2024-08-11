@@ -29,17 +29,17 @@ You will join your fellow learners at posit::conf(2024) to practice, apply and e
 * have dabbled in R, but now want a rigorous foundation in up-to-date data science best practices, or
 * are a SAS or Excel user looking to switch your workflows to R.
 
-## Schedule
+## Schedule & Slides
 
 | Time          | Activity                                  |
 | :------------ | :---------------------------------------- |
-| 09:00 - 10:30 | Session 1 - Welcome, Warm-up & Data types |
+| 09:00 - 10:30 | Session 1 - [Welcome](https://intro-tidyverse-2024.netlify.app/_slides/welcome){target="_blank" rel="noopener noreferrer"}, [Warm-up](https://intro-tidyverse-2024.netlify.app/_slides/warm-up){target="_blank" rel="noopener noreferrer"} & [Data types](https://intro-tidyverse-2024.netlify.app/_slides/data-types){target="_blank" rel="noopener noreferrer"} |
 | 10:30 - 11:00 | *Coffee break*                            |
-| 11:00 - 12:30 | Session 2 - Exploratory data analysis     |
+| 11:00 - 12:30 | Session 2 - [Exploratory data analysis](https://github.com/posit-conf-2024/intro-ds-r/blob/main/slides/eda.pdf){target="_blank" rel="noopener noreferrer"}     |
 | 12:30 - 13:30 | *Lunch break*                             |
-| 13:30 - 15:00 | Session 3 - Explore new data              |
+| 13:30 - 15:00 | Session 3 - [Explore new data](https://intro-tidyverse-2024.netlify.app/_slides/explore-new-data#1){target="_blank" rel="noopener noreferrer"}              |
 | 15:00 - 15:30 | *Coffee break*                            |
-| 15:30 - 17:00 | Session 4 - Share and Wrap-up             |
+| 15:30 - 17:00 | Session 4 - [Share and Wrap-up](https://intro-tidyverse-2024.netlify.app/_slides/wrap-up#1){target="_blank" rel="noopener noreferrer"}             |
 
 ## Logistics
 
