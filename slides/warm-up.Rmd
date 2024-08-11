@@ -334,13 +334,15 @@ seattle_pets |>
 ---
 class: your-turn
 
-# Your Turn 5 -- last one!
+# Your Turn 5 (last one!)
 
 **Visualize the top 10 dog breeds, re-creating the plot below.**
 
 .pull-left[
 
-`r emo::ji("bulb")` Hint: Start with your code from the previous exercise:
+`r emo::ji("bulb")` Hint: Pay close attention to the x and y axes
+
+`r emo::ji("bulb")` Hint: Start with your code from the previous exercise, and pipe this code to `ggplot()`:
 
 ```{r eval=FALSE}
 seattle_pets |> 
@@ -376,9 +378,8 @@ seattle_pets |>
   filter(species == "Dog") |> 
   count(primary_breed) |> 
   slice_max(order_by = n, n = 10) |> 
-  ggplot(aes(x = primary_breed, y = n)) + 
-  geom_col() + 
-  coord_flip()
+  ggplot(aes(x = n, y = primary_breed)) + 
+  geom_col()
 ```
 
 or ...
@@ -388,8 +389,9 @@ seattle_pets |>
   filter(species == "Dog") |> 
   count(primary_breed) |> 
   slice_max(order_by = n, n = 10) |> 
-  ggplot(aes(x = n, y = primary_breed)) + 
-  geom_col()
+  ggplot(aes(x = primary_breed, y = n)) + 
+  geom_col() + 
+  coord_flip()
 ```
 
 ]

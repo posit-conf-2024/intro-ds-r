@@ -41,6 +41,18 @@ class: title-slide
 ---
 class: inverse
 
+# Conf - Data types
+
+&lt;img src="images/data-types/campsite-data-types.png" width="60%" /&gt;
+
+???
+
+Go ahead and open the milestone labeled "Conf - Data types" in the campsite.
+We'll be using this for a few exercises as we go along.
+
+---
+class: inverse
+
 # Data types
 
 Strings, factors and dates
@@ -99,16 +111,16 @@ breed_traits
 
 ```
 ## # A tibble: 195 × 15
-##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
-##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
-## 1 Retrievers (…         5        4        2        5           5              3            5            5      5       3                 4
-## 2 French Bulld…         5        3        3        5           5              3            5            4      3       1                 3
-## 3 German Sheph…         5        4        2        3           4              5            5            5      5       3                 5
-## 4 Retrievers (…         5        4        2        5           4              3            5            5      3       1                 4
-## 5 Bulldogs              4        3        3        4           4              3            3            4      3       2                 3
-## 6 Poodles               5        1        1        5           5              5            4            5      4       4                 5
+##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Retriev…         5        4        2        5           5              3            5            5      5       3
+## 2 French …         5        3        3        5           5              3            5            4      3       1
+## 3 German …         5        4        2        3           4              5            5            5      5       3
+## 4 Retriev…         5        4        2        5           4              3            5            5      3       1
+## 5 Bulldogs         4        3        3        4           4              3            3            4      3       2
+## 6 Poodles          5        1        1        5           5              5            4            5      4       4
 ## # ℹ 189 more rows
-## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 
@@ -156,10 +168,10 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 1 × 15
-##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
-##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
-## 1 Yorkshire Te…         5        1        1        5           4              5            5            4      4       4                 4
-## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Yorkshi…         5        1        1        5           4              5            5            4      4       4
+## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -186,11 +198,11 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 2 × 15
-##   breed         affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
-##   &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
-## 1 Yorkshire Te…         5        1        1        5           4              5            5            4      4       4                 4
-## 2 Boston Terri…         5        2        1        5           5              3            3            4      4       2                 3
-## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+##   breed    affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Yorkshi…         5        1        1        5           4              5            5            4      4       4
+## 2 Boston …         5        2        1        5           5              3            3            4      4       2
+## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -247,20 +259,20 @@ breed_traits %&gt;%
 
 ```
 ## # A tibble: 36 × 15
-##    breed        affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking stimulation_needs
-##    &lt;chr&gt;            &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Yorkshire T…         5        1        1        5           4              5            5            4      4       4                 4
-##  2 Boston Terr…         5        2        1        5           5              3            3            4      4       2                 3
-##  3 West Highla…         5        3        1        4           5              5            4            3      4       5                 4
-##  4 Scottish Te…         5        2        2        3           4              5            4            3      3       4                 4
-##  5 Soft Coated…         5        1        2        3           3              3            3            3      4       3                 3
-##  6 Airedale Te…         3        1        1        3           3              5            3            3      3       3                 3
-##  7 Bull Terrie…         4        3        1        4           4              3            3            3      4       3                 4
-##  8 Russell Ter…         5        3        1        5           5              4            4            3      5       4                 5
-##  9 Cairn Terri…         4        2        1        3           4              4            3            3      3       4                 3
-## 10 Staffordshi…         5        2        3        4           4              5            5            5      4       3                 4
+##    breed   affection shedding drooling openness playfulness protectiveness adaptability trainability energy barking
+##    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Yorksh…         5        1        1        5           4              5            5            4      4       4
+##  2 Boston…         5        2        1        5           5              3            3            4      4       2
+##  3 West H…         5        3        1        4           5              5            4            3      4       5
+##  4 Scotti…         5        2        2        3           4              5            4            3      3       4
+##  5 Soft C…         5        1        2        3           3              3            3            3      4       3
+##  6 Aireda…         3        1        1        3           3              5            3            3      3       3
+##  7 Bull T…         4        3        1        4           4              3            3            3      4       3
+##  8 Russel…         5        3        1        5           5              4            4            3      5       4
+##  9 Cairn …         4        2        1        3           4              4            3            3      3       4
+## 10 Staffo…         5        2        3        4           4              5            5            5      4       3
 ## # ℹ 26 more rows
-## # ℹ 3 more variables: good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
+## # ℹ 4 more variables: stimulation_needs &lt;dbl&gt;, good_w_children &lt;dbl&gt;, good_w_other_dogs &lt;dbl&gt;, grooming_freq &lt;dbl&gt;
 ```
 
 ???
@@ -379,20 +391,22 @@ fruit
 ```
 
 ```
-##  [1] "apple"             "apricot"           "avocado"           "banana"            "bell pepper"       "bilberry"         
-##  [7] "blackberry"        "blackcurrant"      "blood orange"      "blueberry"         "boysenberry"       "breadfruit"       
-## [13] "canary melon"      "cantaloupe"        "cherimoya"         "cherry"            "chili pepper"      "clementine"       
-## [19] "cloudberry"        "coconut"           "cranberry"         "cucumber"          "currant"           "damson"           
-## [25] "date"              "dragonfruit"       "durian"            "eggplant"          "elderberry"        "feijoa"           
-## [31] "fig"               "goji berry"        "gooseberry"        "grape"             "grapefruit"        "guava"            
-## [37] "honeydew"          "huckleberry"       "jackfruit"         "jambul"            "jujube"            "kiwi fruit"       
-## [43] "kumquat"           "lemon"             "lime"              "loquat"            "lychee"            "mandarine"        
-## [49] "mango"             "mulberry"          "nectarine"         "nut"               "olive"             "orange"           
-## [55] "pamelo"            "papaya"            "passionfruit"      "peach"             "pear"              "persimmon"        
-## [61] "physalis"          "pineapple"         "plum"              "pomegranate"       "pomelo"            "purple mangosteen"
-## [67] "quince"            "raisin"            "rambutan"          "raspberry"         "redcurrant"        "rock melon"       
-## [73] "salal berry"       "satsuma"           "star fruit"        "strawberry"        "tamarillo"         "tangerine"        
-## [79] "ugli fruit"        "watermelon"
+##  [1] "apple"             "apricot"           "avocado"           "banana"            "bell pepper"      
+##  [6] "bilberry"          "blackberry"        "blackcurrant"      "blood orange"      "blueberry"        
+## [11] "boysenberry"       "breadfruit"        "canary melon"      "cantaloupe"        "cherimoya"        
+## [16] "cherry"            "chili pepper"      "clementine"        "cloudberry"        "coconut"          
+## [21] "cranberry"         "cucumber"          "currant"           "damson"            "date"             
+## [26] "dragonfruit"       "durian"            "eggplant"          "elderberry"        "feijoa"           
+## [31] "fig"               "goji berry"        "gooseberry"        "grape"             "grapefruit"       
+## [36] "guava"             "honeydew"          "huckleberry"       "jackfruit"         "jambul"           
+## [41] "jujube"            "kiwi fruit"        "kumquat"           "lemon"             "lime"             
+## [46] "loquat"            "lychee"            "mandarine"         "mango"             "mulberry"         
+## [51] "nectarine"         "nut"               "olive"             "orange"            "pamelo"           
+## [56] "papaya"            "passionfruit"      "peach"             "pear"              "persimmon"        
+## [61] "physalis"          "pineapple"         "plum"              "pomegranate"       "pomelo"           
+## [66] "purple mangosteen" "quince"            "raisin"            "rambutan"          "raspberry"        
+## [71] "redcurrant"        "rock melon"        "salal berry"       "satsuma"           "star fruit"       
+## [76] "strawberry"        "tamarillo"         "tangerine"         "ugli fruit"        "watermelon"
 ```
 
 ???
@@ -418,8 +432,9 @@ str_subset(fruit, " ")
 ```
 
 ```
-##  [1] "bell pepper"       "blood orange"      "canary melon"      "chili pepper"      "goji berry"        "kiwi fruit"       
-##  [7] "purple mangosteen" "rock melon"        "salal berry"       "star fruit"        "ugli fruit"
+##  [1] "bell pepper"       "blood orange"      "canary melon"      "chili pepper"      "goji berry"       
+##  [6] "kiwi fruit"        "purple mangosteen" "rock melon"        "salal berry"       "star fruit"       
+## [11] "ugli fruit"
 ```
 
 ---
@@ -483,7 +498,7 @@ gss_cat %&gt;%
 ```
 ]
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-21-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-22-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -501,13 +516,13 @@ gss_cat %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-23-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-24-1.png" width="90%" /&gt;
 ]
 
 ---
 # What are we trying to show?
 
-![](data-types_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](data-types_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 ---
 # Factors have an ordering
@@ -576,7 +591,7 @@ Use ggplot and one of these forcats functions to recreate the plot of `gss_cat`:
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-28-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-29-1.png" width="90%" /&gt;
 ]
 
 ---
@@ -598,7 +613,7 @@ gss %&gt;%
 ]
 
 .pull-right[
-&lt;img src="data-types_files/figure-html/unnamed-chunk-30-1.png" width="90%" /&gt;
+&lt;img src="data-types_files/figure-html/unnamed-chunk-31-1.png" width="90%" /&gt;
 ]
 
 ---

@@ -132,13 +132,13 @@ class: your-turn
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 1…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S13198…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", …
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Sh…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix",…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199,…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986",…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Short…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98…
 ```
 
 
@@ -159,13 +159,13 @@ glimpse(seattle_pets)
 ```
 ## Rows: 43,683
 ## Columns: 7
-## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 1…
-## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S13198…
-## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", …
-## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat",…
-## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Sh…
-## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix",…
-## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199,…
+## $ license_issue_date &lt;chr&gt; "December 18 2015", "June 14 2016", "August 04 2016", "February 13 2019", "August 10 2…
+## $ license_number     &lt;chr&gt; "S107948", "S116503", "S119301", "962273", "S133113", "8002549", "S112835", "S131986",…
+## $ animal_name        &lt;chr&gt; "Zen", "Misty", "Lyra", "Veronica", "Spider", "Maxx", "Diamond", "Nacho", "Pixel", "C.…
+## $ species            &lt;chr&gt; "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "Cat", "C…
+## $ primary_breed      &lt;chr&gt; "Domestic Longhair", "Siberian", "Mix", "Domestic Longhair", "LaPerm", "American Short…
+## $ secondary_breed    &lt;chr&gt; "Mix", NA, NA, NA, NA, NA, "Mix", "Mix", "Mix", "Mix", "American Shorthair", "Mix", NA…
+## $ zip_code           &lt;dbl&gt; 98117, 98117, 98121, 98107, 98115, 98125, 98103, 98126, 98112, 98117, 98126, 98199, 98…
 ```
 
 ---
@@ -327,13 +327,15 @@ seattle_pets |&gt;
 ---
 class: your-turn
 
-# Your Turn 5 -- last one!
+# Your Turn 5 (last one!)
 
 **Visualize the top 10 dog breeds, re-creating the plot below.**
 
 .pull-left[
 
-💡 Hint: Start with your code from the previous exercise:
+💡 Hint: Pay close attention to the x and y axes
+
+💡 Hint: Start with your code from the previous exercise, and pipe this code to `ggplot()`:
 
 
 ```r
@@ -363,9 +365,8 @@ seattle_pets |&gt;
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
   slice_max(order_by = n, n = 10) |&gt; 
-  ggplot(aes(x = primary_breed, y = n)) + 
-  geom_col() + 
-  coord_flip()
+  ggplot(aes(x = n, y = primary_breed)) + 
+  geom_col()
 ```
 
 or ...
@@ -376,8 +377,9 @@ seattle_pets |&gt;
   filter(species == "Dog") |&gt; 
   count(primary_breed) |&gt; 
   slice_max(order_by = n, n = 10) |&gt; 
-  ggplot(aes(x = n, y = primary_breed)) + 
-  geom_col()
+  ggplot(aes(x = primary_breed, y = n)) + 
+  geom_col() + 
+  coord_flip()
 ```
 
 ]

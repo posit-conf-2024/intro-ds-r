@@ -58,6 +58,20 @@ if (!is.null(rmarkdown::metadata$shortlink)) {
 ---
 class: inverse
 
+# Conf - Data types
+
+```{r echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/data-types/campsite-data-types.png")
+```
+
+???
+
+Go ahead and open the milestone labeled "Conf - Data types" in the campsite.
+We'll be using this for a few exercises as we go along.
+
+---
+class: inverse
+
 # Data types
 
 Strings, factors and dates
