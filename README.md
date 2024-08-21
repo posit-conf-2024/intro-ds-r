@@ -5,22 +5,6 @@ Posit Academy: Introduction to Data Science with R
 
 by Brendan Cullen
 
------
-
-INSTRUCTIONS FOR INSTRUCTORS: Please insert information about your
-workshop below. Then, add workshop content in the materials folder and
-link to each session’s materials from the schedule below. You are
-welcomed to add more rows to the schedule. We just ask that you take
-breaks at the specified times. Once you are done adding information, you
-can remove these instructions from the README.
-
-Alternatively, you can completely redo the organization of this repo 
-as a Quarto website or some other format you prefer to host your workshop
-materials. The only requirement is that your workshop materials are hosted 
-here.
-
------
-
 :spiral_calendar: August 12, 2024  
 :alarm_clock:     09:00 - 17:00  
 :hotel:           502 (Cowlitz)  
